@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://u1ld56y5f4he"]
+
+[ext_resource type="Script" uid="uid://ci2a4ms3agdfe" path="res://scripts/lit_area.gd" id="1_1tcwo"]
+
+[node name="LitArea" type="Area2D"]
+script = ExtResource("1_1tcwo")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

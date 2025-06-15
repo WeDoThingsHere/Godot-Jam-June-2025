@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://8fl6ml6n68m6"]
+
+[ext_resource type="Script" uid="uid://1rkwu4yyw5xm" path="res://scripts/solid_platform.gd" id="1_keqa2"]
+
+[node name="SolidPlatform" type="Node2D"]
+script = ExtResource("1_keqa2")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+modulate = Color(0.637911, 0.456362, 1, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm4ks8s3k6q5a"]
+
+[ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="2_tthgi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6jvd8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_urr3w"]
+
+[node name="Platform Test" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Light" parent="." instance=ExtResource("2_tthgi")]
+position = Vector2(259, -7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light/LitArea" index="0"]
+position = Vector2(0, 1)
+scale = Vector2(6.28, 6.28)
+shape = SubResource("CircleShape2D_6jvd8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color(1, 0.471553, 0.980041, 1)
+scale = Vector2(10.4635, 12.0899)
+shape = SubResource("RectangleShape2D_urr3w")
+one_way_collision_margin = 0.0
+debug_color = Color(0.206591, 0.603394, 0.601472, 0.42)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(61, 10)
+polygon = PackedVector2Array(-424, -16, 304, -16, 304, 80, -424, 80)
+uv = PackedVector2Array(-424, -16, 304, -16, 304, 80, -424, 80)
+
+[editable path="Light"]
