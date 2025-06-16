@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bm4ks8s3k6q5a"]
+[gd_scene load_steps=6 format=3 uid="uid://bm4ks8s3k6q5a"]
 
 [ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="1_clysx"]
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="2_tthgi"]
+[ext_resource type="Script" uid="uid://g33goald2oo1" path="res://scripts/character_body_2d.gd" id="3_6jvd8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jvd8"]
+size = Vector2(18, 20)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6jvd8"]
+specular_color = Color(0, 0, 0, 1)
 
 [node name="Platform Test" type="Node2D"]
 
@@ -17,9 +24,28 @@ uv = PackedVector2Array(-136, -56, -104, -72, -56, -72, 0, -56, 16, -24, 16, 0, 
 [node name="PlatformBox" parent="." instance=ExtResource("1_clysx")]
 position = Vector2(-129, -91)
 
+[node name="PlatformArea" parent="PlatformBox" index="0"]
+position = Vector2(59, 57)
+
 [node name="Polygon2D" parent="PlatformBox/PlatformArea" index="0"]
 polygon = PackedVector2Array(-288, -24, 320, -24, 320, 64, -288, 64)
 uv = PackedVector2Array(-288, -24, 320, -24, 320, 64, -288, 64)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+modulate = Color(0.35576, 0.205718, 0.926272, 1)
+position = Vector2(169, -143)
+collision_layer = 2
+script = ExtResource("3_6jvd8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_6jvd8")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+modulate = Color(0.552047, 0.284373, 1, 1)
+position = Vector2(-1.5, 0.500003)
+scale = Vector2(17, 19)
+texture = SubResource("CanvasTexture_6jvd8")
 
 [editable path="Light"]
 [editable path="Light/LitArea"]
