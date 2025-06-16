@@ -1,16 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://bm4ks8s3k6q5a"]
+[gd_scene load_steps=4 format=3 uid="uid://bm4ks8s3k6q5a"]
 
+[ext_resource type="PackedScene" uid="uid://dplogep350bae" path="res://scenes/Player.tscn" id="1_6jvd8"]
 [ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="1_clysx"]
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="2_tthgi"]
 
 [node name="Platform Test" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Player" parent="." instance=ExtResource("1_6jvd8")]
+position = Vector2(108, -148)
 
-[node name="Light" parent="." instance=ExtResource("2_tthgi")]
-position = Vector2(251, -99)
+[node name="Light" parent="Player" instance=ExtResource("2_tthgi")]
+position = Vector2(71.5, 24.5)
+scale = Vector2(0.5, 0.5)
 
-[node name="Polygon2D" parent="Light/LitArea" index="1"]
+[node name="LitArea" parent="Player/Light" index="1"]
+position = Vector2(-67, -34)
+
+[node name="Polygon2D" parent="Player/Light/LitArea" index="1"]
+color = Color(1, 1, 1, 0.431373)
 polygon = PackedVector2Array(-136, -56, -104, -72, -56, -72, 0, -56, 16, -24, 16, 0, 8, 24, -8, 48, -40, 56, -88, 56, -152, 24, -152, -48)
 uv = PackedVector2Array(-136, -56, -104, -72, -56, -72, 0, -56, 16, -24, 16, 0, 8, 24, -8, 48, -40, 56, -88, 56, -152, 24, -152, -48)
 
@@ -21,6 +28,6 @@ position = Vector2(-129, -91)
 polygon = PackedVector2Array(-288, -24, 320, -24, 320, 64, -288, 64)
 uv = PackedVector2Array(-288, -24, 320, -24, 320, 64, -288, 64)
 
-[editable path="Light"]
-[editable path="Light/LitArea"]
+[editable path="Player/Light"]
+[editable path="Player/Light/LitArea"]
 [editable path="PlatformBox"]
