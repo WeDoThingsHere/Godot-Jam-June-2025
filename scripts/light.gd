@@ -51,7 +51,7 @@ func solidify_platforms() -> void:
 			#print(polygon)
 			var to_solidify_polygon = polygon.duplicate()
 			for n in to_solidify_polygon.size():
-				to_solidify_polygon[n] = to_solidify_polygon[n] - lit_area_collision.global_position
+				to_solidify_polygon[n] = add_rotation(to_solidify_polygon[n], -rotation) - add_rotation(lit_area_collision.global_position, -rotation)
 			var to_solidify = solid_platform_object.instantiate()
 			#print("light pos")
 			#print(global_position)

@@ -1,8 +1,46 @@
-[gd_scene load_steps=6 format=3 uid="uid://bm4ks8s3k6q5a"]
+[gd_scene load_steps=9 format=3 uid="uid://bm4ks8s3k6q5a"]
 
 [ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="1_clysx"]
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="2_tthgi"]
 [ext_resource type="Script" uid="uid://g33goald2oo1" path="res://scripts/character_body_2d.gd" id="3_6jvd8"]
+
+[sub_resource type="Animation" id="Animation_6jvd8"]
+resource_name = "platform_move"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(97, -147), Vector2(288, -152), Vector2(97, -147)]
+}
+
+[sub_resource type="Animation" id="Animation_fsjfv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(97, -147)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_urr3w"]
+_data = {
+&"RESET": SubResource("Animation_fsjfv"),
+&"platform_move": SubResource("Animation_6jvd8")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6jvd8"]
 size = Vector2(18, 20)
@@ -15,7 +53,7 @@ specular_color = Color(0, 0, 0, 1)
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Light" parent="." instance=ExtResource("2_tthgi")]
-position = Vector2(251, -99)
+position = Vector2(198, -73)
 
 [node name="Polygon2D" parent="Light/LitArea" index="1"]
 polygon = PackedVector2Array(-136, -56, -104, -72, -56, -72, 0, -56, 16, -24, 16, 0, 8, 24, -8, 48, -40, 56, -88, 56, -152, 24, -152, -48)
@@ -30,6 +68,22 @@ position = Vector2(59, 57)
 [node name="Polygon2D" parent="PlatformBox/PlatformArea" index="0"]
 polygon = PackedVector2Array(-288, -24, 320, -24, 320, 64, -288, 64)
 uv = PackedVector2Array(-288, -24, 320, -24, 320, 64, -288, 64)
+
+[node name="PlatformBox2" parent="." instance=ExtResource("1_clysx")]
+position = Vector2(97, -147)
+
+[node name="PlatformArea" parent="PlatformBox2" index="0"]
+position = Vector2(59, 57)
+
+[node name="Polygon2D" parent="PlatformBox2/PlatformArea" index="0"]
+polygon = PackedVector2Array(-208, -24, 184, -24, 184, 24, -208, 24)
+uv = PackedVector2Array(-288, -24, 320, -24, 320, 64, -288, 64)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlatformBox2"]
+libraries = {
+&"": SubResource("AnimationLibrary_urr3w")
+}
+autoplay = "platform_move"
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 modulate = Color(0.35576, 0.205718, 0.926272, 1)
@@ -50,3 +104,4 @@ texture = SubResource("CanvasTexture_6jvd8")
 [editable path="Light"]
 [editable path="Light/LitArea"]
 [editable path="PlatformBox"]
+[editable path="PlatformBox2"]
