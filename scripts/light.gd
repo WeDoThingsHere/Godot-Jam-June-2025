@@ -33,7 +33,8 @@ func solidify_platforms() -> void:
 	#print("lit global position")
 	#print(lit_area_collision.global_position)
 	for n in lit_polygon.size():
-		lit_polygon[n] = lit_polygon[n] + lit_area_collision.global_position
+		print(rotation)
+		lit_polygon[n] =  add_rotation(lit_polygon[n], rotation) + lit_area_collision.global_position
 	for platform in lit_platforms:
 		var platform_shape = lit_platforms[platform].duplicate()
 		for n in platform_shape.size():
@@ -58,3 +59,7 @@ func solidify_platforms() -> void:
 			to_solidify.set_polygon(to_solidify_polygon)
 			#print(to_solidify.global_position)
 			created_platforms.add_child(to_solidify)
+
+func add_rotation(toAdd: Vector2, radians: float) -> Vector2:
+	return Vector2(toAdd.x * cos(radians) - toAdd.y * sin(radians), toAdd.x * sin(radians) + toAdd.y * cos(radians))
+	
