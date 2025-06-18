@@ -10,6 +10,9 @@ size = Vector2(14, 14)
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_p0vlq")
+SPEED = 270.0
+JUMP_VELOCITY = -510.0
+GRAV_MULT = 1.45
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.99435, 0.123384, 0.867163, 1)
@@ -18,6 +21,3 @@ texture = SubResource("CanvasTexture_5q5h1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_p0vlq")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)

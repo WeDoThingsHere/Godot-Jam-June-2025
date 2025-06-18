@@ -10,6 +10,8 @@ script = ExtResource("1_keqa2")
 collision_mask = 2
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
-modulate = Color(0.874372, 0.719799, 0.727092, 1)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+
+[node name="Fill" type="Polygon2D" parent="StaticBody2D"]
+modulate = Color(0.898364, 0.628117, 0.707795, 1)
