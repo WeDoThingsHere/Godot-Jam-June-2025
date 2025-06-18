@@ -7,7 +7,9 @@ script = ExtResource("1_fnap8")
 
 [node name="PlatformArea" type="Area2D" parent="." groups=["platforms"]]
 
-[node name="Polygon2D" type="Polygon2D" parent="PlatformArea"]
-modulate = Color(0.374075, 0.435069, 0.983466, 1)
+[node name="Bounds" type="Polygon2D" parent="PlatformArea"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformArea"]
+
+[node name="Fill" type="Polygon2D" parent="PlatformArea"]
+modulate = Color(0.0717487, 0.0689955, 0.127999, 1)

@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cpfjtop5mqer0"]
+
+[node name="constant_platform" type="Node2D"]

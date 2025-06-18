@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://1vc1bw8cjbem"]
+
+[ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="1_1c2mv"]
+[ext_resource type="PackedScene" uid="uid://nhxnwxvg7tii" path="res://scenes/Player.tscn" id="2_f7g2b"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4ptq8"]
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Killzone" parent="." instance=ExtResource("1_1c2mv")]
+position = Vector2(0, 322)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_4ptq8")
+
+[node name="Player" parent="." instance=ExtResource("2_f7g2b")]
+position = Vector2(0, -1)
