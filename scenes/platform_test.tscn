@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bm4ks8s3k6q5a"]
+[gd_scene load_steps=11 format=3 uid="uid://bm4ks8s3k6q5a"]
 
 [ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="1_clysx"]
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="2_tthgi"]
@@ -44,6 +44,11 @@ _data = {
 }
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_urr3w"]
+
+[sub_resource type="Gradient" id="Gradient_fsjfv"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_urr3w"]
+gradient = SubResource("Gradient_fsjfv")
 
 [node name="Platform Test" type="Node2D"]
 
@@ -118,6 +123,11 @@ position = Vector2(145, 80)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_urr3w")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(50, -84)
+scale = Vector2(4.60684, 2.5907)
+texture = SubResource("GradientTexture2D_urr3w")
 
 [editable path="Light1"]
 [editable path="Light1/LitArea"]
