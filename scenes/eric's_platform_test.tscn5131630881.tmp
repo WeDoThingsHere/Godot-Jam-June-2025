@@ -1,0 +1,149 @@
+[gd_scene load_steps=11 format=3 uid="uid://brik828nmalxf"]
+
+[ext_resource type="PackedScene" uid="uid://nhxnwxvg7tii" path="res://scenes/Player.tscn" id="1_ty0f3"]
+[ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="2_ufmrn"]
+[ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="3_mx8qg"]
+[ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="4_y8fji"]
+[ext_resource type="PackedScene" uid="uid://bbn1h73n5dlal" path="res://scenes/shadow.tscn" id="5_ufmrn"]
+[ext_resource type="PackedScene" uid="uid://bhfabwws43023" path="res://scenes/dust_spawner.tscn" id="6_mx8qg"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_urr3w"]
+
+[sub_resource type="Animation" id="Animation_fsjfv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(97, -147)]
+}
+
+[sub_resource type="Animation" id="Animation_6jvd8"]
+resource_name = "platform_move"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(97, -147), Vector2(288, -152), Vector2(97, -147)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_urr3w"]
+_data = {
+&"RESET": SubResource("Animation_fsjfv"),
+&"platform_move": SubResource("Animation_6jvd8")
+}
+
+[node name="Eric\'s Platform Test" type="Node2D"]
+
+[node name="Shadow" parent="." instance=ExtResource("5_ufmrn")]
+z_index = 1
+position = Vector2(1, 123)
+
+[node name="Player" parent="." instance=ExtResource("1_ty0f3")]
+z_index = 2
+position = Vector2(71, -73)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2, 2)
+
+[node name="Killzone" parent="." instance=ExtResource("2_ufmrn")]
+position = Vector2(145, 80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-72, 9)
+shape = SubResource("WorldBoundaryShape2D_urr3w")
+
+[node name="Lights" type="Node2D" parent="."]
+z_index = -1
+
+[node name="Light1" parent="Lights" instance=ExtResource("3_mx8qg")]
+position = Vector2(132, -74)
+
+[node name="Polygon2D" parent="Lights/Light1/LitArea" index="1"]
+modulate = Color(1, 1, 1, 0.27451)
+polygon = PackedVector2Array(-140.033, -27.8162, -130.946, -50.5354, -120.79, -60.5775, -108.067, -69.6652, -88.0742, -79.6616, -64.446, -83.2967, -45.3619, -82.388, -18.0988, -75.1178, 2.80305, -61.4862, 13.7082, -48.7634, 22.2247, -32.3402, 28.0078, -10.8602, 29.0497, 5.62675, 25.3629, 23.9838, 19.2022, 39.0694, 4.73879, 57.8186, -13.0179, 74.594, -31.3319, 83.0555, -54.4642, 85.534, -77.5966, 81.4033, -98.112, 76.2463, -109.678, 68.8109, -123.723, 55.5924, -134.463, 38.2432, -139.42, 25.8509, -143.669, 13.0786, -143.669, -4.18807)
+uv = PackedVector2Array(-128, -16, -120, -40, -112, -48, -104, -48, -88, -56, -64, -72, -56, -72, -40, -64, -32, -64, -24, -56, -16, -48, -16, -40, 0, -8, 0, 16, -8, 24, -16, 40, -24, 56, -40, 56, -48, 56, -64, 56, -72, 56, -88, 56, -104, 32, -112, 24, -120, 16, -120, 8, -120, 0)
+
+[node name="Light2" parent="Lights" instance=ExtResource("3_mx8qg")]
+position = Vector2(371, -73)
+
+[node name="Polygon2D" parent="Lights/Light2/LitArea" index="1"]
+modulate = Color(1, 1, 1, 0.27451)
+polygon = PackedVector2Array(-114.916, -18.5103, -108.707, -34.0333, -101.768, -40.8946, -93.0751, -47.1038, -79.4148, -53.9339, -63.2708, -56.4176, -50.2315, -55.7967, -31.6039, -50.8293, -17.3226, -41.5155, -9.87163, -32.8226, -4.05266, -21.6014, -0.101332, -6.92506, 0.610497, 4.33969, -1.90847, 16.8822, -6.11785, 27.1895, -16, 40, -28.1323, 51.4618, -40.6454, 57.2432, -56.4507, 58.9366, -72.256, 56.1143, -86.2732, 52.5908, -94.1758, 47.5105, -103.772, 38.4789, -111.11, 26.625, -114.497, 18.1579, -117.4, 9.43119, -117.4, -2.36632)
+uv = PackedVector2Array(-128, -16, -120, -40, -112, -48, -104, -48, -88, -56, -64, -72, -56, -72, -40, -64, -32, -64, -24, -56, -16, -48, -16, -40, 0, -8, 0, 16, -8, 24, -16, 40, -24, 56, -40, 56, -48, 56, -64, 56, -72, 56, -88, 56, -104, 32, -112, 24, -120, 16, -120, 8, -120, 0)
+
+[node name="Light3" parent="Lights" instance=ExtResource("3_mx8qg")]
+position = Vector2(39, -173)
+
+[node name="Polygon2D" parent="Lights/Light3/LitArea" index="1"]
+modulate = Color(1, 1, 1, 0.27451)
+polygon = PackedVector2Array(-112, -40, -112, 56, 0, 56, 0, -40)
+uv = PackedVector2Array(-112, -40, -112, 56, 0, 56, 0, -40)
+
+[node name="Platform Boxes" type="Node2D" parent="."]
+z_index = -1
+
+[node name="PlatformBox" parent="Platform Boxes" instance=ExtResource("4_y8fji")]
+position = Vector2(138, -51)
+
+[node name="PlatformArea" parent="Platform Boxes/PlatformBox" index="0"]
+position = Vector2(59, 57)
+
+[node name="Bounds" parent="Platform Boxes/PlatformBox/PlatformArea" index="0"]
+polygon = PackedVector2Array(-312, -40, -312, 32, -24, 32, -24, -40)
+uv = PackedVector2Array(-312, -40, -312, 32, 168, 32, 168, -40)
+
+[node name="PlatformBox3" parent="Platform Boxes" instance=ExtResource("4_y8fji")]
+position = Vector2(138, -194)
+
+[node name="PlatformArea" parent="Platform Boxes/PlatformBox3" index="0"]
+position = Vector2(59, 57)
+
+[node name="Bounds" parent="Platform Boxes/PlatformBox3/PlatformArea" index="0"]
+polygon = PackedVector2Array(-312, -40, -312, 32, -96, 32, -96, -40)
+uv = PackedVector2Array(-312, -40, -312, 32, 168, 32, 168, -40)
+
+[node name="PlatformBox2" parent="Platform Boxes" instance=ExtResource("4_y8fji")]
+position = Vector2(97, -147)
+
+[node name="PlatformArea" parent="Platform Boxes/PlatformBox2" index="0"]
+position = Vector2(59, 57)
+
+[node name="Bounds" parent="Platform Boxes/PlatformBox2/PlatformArea" index="0"]
+polygon = PackedVector2Array(-72, -16, -72, 56, 192, 56, 192, -16)
+uv = PackedVector2Array(-152, -16, -152, 56, 216, 56, 216, -16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform Boxes/PlatformBox2"]
+libraries = {
+&"": SubResource("AnimationLibrary_urr3w")
+}
+autoplay = "platform_move"
+
+[node name="DustSpawner" parent="." instance=ExtResource("6_mx8qg")]
+position = Vector2(72, -73)
+
+[editable path="Shadow"]
+[editable path="Shadow/ShadowArea"]
+[editable path="Lights/Light1"]
+[editable path="Lights/Light1/LitArea"]
+[editable path="Lights/Light2"]
+[editable path="Lights/Light2/LitArea"]
+[editable path="Lights/Light3"]
+[editable path="Lights/Light3/LitArea"]
+[editable path="Platform Boxes/PlatformBox"]
+[editable path="Platform Boxes/PlatformBox3"]
+[editable path="Platform Boxes/PlatformBox2"]

@@ -7,9 +7,10 @@
 [node name="Light" type="Node2D"]
 script = ExtResource("1_24oxn")
 solid_platform_object = ExtResource("2_ky1i4")
+on_immediately = true
 
 [node name="CreatedPlatforms" type="Node2D" parent="."]
 
-[node name="LitArea" parent="." instance=ExtResource("2_2e2gu")]
+[node name="LitArea" parent="." groups=["lights"] instance=ExtResource("2_2e2gu")]
 
 [editable path="LitArea"]
