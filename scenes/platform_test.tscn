@@ -72,22 +72,34 @@ polygon = PackedVector2Array(-112, -40, -112, 56, 0, 56, 0, -40)
 uv = PackedVector2Array(-112, -40, -112, 56, 0, 56, 0, -40)
 
 [node name="PlatformBox" parent="." instance=ExtResource("1_clysx")]
-position = Vector2(138, -51)
+position = Vector2(106, -10)
 
 [node name="PlatformArea" parent="PlatformBox" index="0"]
 position = Vector2(59, 57)
 
+[node name="Bounds" parent="PlatformBox/PlatformArea" index="0"]
+polygon = PackedVector2Array(-168, -72, 240, -72, 240, 24, -168, 24)
+uv = PackedVector2Array(-168, -72, 240, -72, 240, 24, -168, 24)
+
 [node name="PlatformBox3" parent="." instance=ExtResource("1_clysx")]
-position = Vector2(138, -194)
+position = Vector2(400, -109)
 
 [node name="PlatformArea" parent="PlatformBox3" index="0"]
 position = Vector2(59, 57)
+
+[node name="Bounds" parent="PlatformBox3/PlatformArea" index="0"]
+polygon = PackedVector2Array(-200, -72, -64, -72, -64, -24, -200, -24)
+uv = PackedVector2Array(-200, -72, -64, -72, -64, -24, -200, -24)
 
 [node name="PlatformBox2" parent="." instance=ExtResource("1_clysx")]
 position = Vector2(97, -147)
 
 [node name="PlatformArea" parent="PlatformBox2" index="0"]
 position = Vector2(59, 57)
+
+[node name="Bounds" parent="PlatformBox2/PlatformArea" index="0"]
+polygon = PackedVector2Array(-136, -48, -8, -48, -8, -8, -136, -8)
+uv = PackedVector2Array(-136, -48, -8, -48, -32, -8, -136, -8)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlatformBox2"]
 libraries = {
