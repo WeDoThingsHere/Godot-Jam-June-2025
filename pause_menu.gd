@@ -1,0 +1,35 @@
+extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Pause"):
+		toggle_pause()
+		
+func toggle_pause():
+	if Engine.time_scale == 1.0:
+		pause_game()
+	else:
+		resume_game()
+		
+func pause_game():
+	Engine.time_scale = 0.0
+	visible = true
+
+func resume_game():
+	Engine.time_scale = 1.0
+	visible = false
+
+
+func _on_resume_pressed() -> void:
+	resume_game()
+
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()

@@ -77,29 +77,17 @@ position = Vector2(138, -51)
 [node name="PlatformArea" parent="PlatformBox" index="0"]
 position = Vector2(59, 57)
 
-[node name="Bounds" parent="PlatformBox/PlatformArea" index="0"]
-polygon = PackedVector2Array(-312, -40, -312, 32, -24, 32, -24, -40)
-uv = PackedVector2Array(-312, -40, -312, 32, 168, 32, 168, -40)
-
 [node name="PlatformBox3" parent="." instance=ExtResource("1_clysx")]
 position = Vector2(138, -194)
 
 [node name="PlatformArea" parent="PlatformBox3" index="0"]
 position = Vector2(59, 57)
 
-[node name="Bounds" parent="PlatformBox3/PlatformArea" index="0"]
-polygon = PackedVector2Array(-312, -40, -312, 32, -96, 32, -96, -40)
-uv = PackedVector2Array(-312, -40, -312, 32, 168, 32, 168, -40)
-
 [node name="PlatformBox2" parent="." instance=ExtResource("1_clysx")]
 position = Vector2(97, -147)
 
 [node name="PlatformArea" parent="PlatformBox2" index="0"]
 position = Vector2(59, 57)
-
-[node name="Bounds" parent="PlatformBox2/PlatformArea" index="0"]
-polygon = PackedVector2Array(-72, -16, -72, 56, 192, 56, 192, -16)
-uv = PackedVector2Array(-152, -16, -152, 56, 216, 56, 216, -16)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlatformBox2"]
 libraries = {
