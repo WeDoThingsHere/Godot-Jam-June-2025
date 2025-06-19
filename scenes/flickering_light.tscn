@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0p3djj4uybf5"]
+
+[ext_resource type="Script" uid="uid://chu1p12pm1uoa" path="res://scripts/flickering_light.gd" id="1_5ahix"]
+[ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="1_qlewg"]
+
+[node name="FlickeringLight" type="Node2D"]
+script = ExtResource("1_5ahix")
+
+[node name="Light" parent="." instance=ExtResource("1_qlewg")]
+position = Vector2(0, -3)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.996
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="Light"]
+[editable path="Light/LitArea"]

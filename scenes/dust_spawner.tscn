@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhfabwws43023"]
+
+[ext_resource type="Script" uid="uid://bdo5j8quynbkg" path="res://scripts/dust_spawner.gd" id="1_y5sjy"]
+[ext_resource type="Texture2D" uid="uid://cw3g6doo1acy4" path="res://assets/sprites/DustParticle.png" id="2_y76fd"]
+
+[sub_resource type="Gradient" id="Gradient_y76fd"]
+colors = PackedColorArray(1, 1, 1, 0.168627, 1, 1, 1, 0.678431)
+
+[node name="DustSpawner" type="Node2D"]
+script = ExtResource("1_y5sjy")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 180
+texture = ExtResource("2_y76fd")
+lifetime = 11.33
+lifetime_randomness = 0.25
+emission_shape = 3
+emission_rect_extents = Vector2(600, 300)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 15.0
+linear_accel_min = -5.52
+scale_amount_min = 0.02
+scale_amount_max = 0.08
+color_ramp = SubResource("Gradient_y76fd")

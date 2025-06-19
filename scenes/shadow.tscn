@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbn1h73n5dlal"]
+
+[ext_resource type="Script" uid="uid://0khpsiky8fog" path="res://scripts/shadow.gd" id="1_0rvn4"]
+[ext_resource type="PackedScene" uid="uid://18f263ca4ehs" path="res://scenes/shadow_area.tscn" id="2_jqplm"]
+
+[node name="Shadow" type="Node2D"]
+script = ExtResource("1_0rvn4")
+
+[node name="ShadowPolygon" type="Polygon2D" parent="."]
+color = Color(0.0705882, 0.0705882, 0.129412, 1)
+
+[node name="ShadowArea" parent="." instance=ExtResource("2_jqplm")]
+
+[node name="Polygon2D" parent="ShadowArea" index="1"]
+polygon = PackedVector2Array(-466, -455, -464, 88, 616, 88, 618, -455)
+uv = PackedVector2Array(-464, -80, -464, 88, 120, 88, 120, -80)
+
+[editable path="ShadowArea"]
