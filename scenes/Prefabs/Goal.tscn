@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://da0vb48bj51jb"]
+
+[ext_resource type="Script" uid="uid://cjbnqvd305ore" path="res://scripts/goal.gd" id="1_tm244"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xcwij"]
+
+[node name="Goal" type="Area2D"]
+script = ExtResource("1_tm244")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xcwij")
+debug_color = Color(0.186276, 0.602286, 0.623731, 0.42)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.878002, 0.71449, 0.32237, 1)
+polygon = PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)
+uv = PackedVector2Array(-16, -96, -16, -64, 16, -64, 16, -96)
+
+[connection signal="body_entered" from="." to="." method="onCollision"]

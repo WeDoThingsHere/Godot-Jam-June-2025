@@ -8,7 +8,11 @@ enum {
 # Called when the node enters the scene tree for the first time.
 @export_enum("LevelOne", "LevelTwo", "LevelThree")
 var LevelToLoad: String = "LevelOne"
+@onready var LevelButtons = $"HBOX Level Selection Container"
 
+func showLevels() -> void:
+	
+	pass
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -16,8 +20,19 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
-func _on_play_button_2_pressed() -> void:
-	#print("Im being called!")
-	#get_tree().change_scene_to_packed(game_scene)
-	SceneManager.changeSceneTo(2)
-	
+
+#
+#func _on_play_button_2_pressed() -> void:
+	##print("Im being called!")
+	##get_tree().change_scene_to_packed(game_scene)
+	#SceneManager.changeSceneTo(2)
+#
+func setvisibility() -> void:
+	if LevelButtons.visible:
+		LevelButtons.visible = false
+	else:
+		LevelButtons.visible = true
+
+func PlayButton() -> void:
+	setvisibility()
+	pass # Replace with function body.

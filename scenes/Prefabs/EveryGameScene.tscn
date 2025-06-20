@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dunadgt76ux7n"]
+
+[ext_resource type="PackedScene" uid="uid://cwkp8wmsw5av1" path="res://scenes/Prefabs/Completion.tscn" id="1_3itl0"]
+[ext_resource type="PackedScene" uid="uid://rweim3qej8eq" path="res://scenes/Prefabs/pause_menu.tscn" id="1_m8mco"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Completion" parent="Control" instance=ExtResource("1_3itl0")]
+visible = false
+layout_mode = 1
+
+[node name="Pause Menu" parent="Control" instance=ExtResource("1_m8mco")]
+visible = false
+layout_mode = 1

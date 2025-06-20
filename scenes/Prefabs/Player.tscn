@@ -1,23 +1,25 @@
 [gd_scene load_steps=4 format=3 uid="uid://nhxnwxvg7tii"]
 
-[ext_resource type="Script" uid="uid://cpkbnivocb4a" path="res://scripts/PlayerController.gd" id="1_p0vlq"]
+[ext_resource type="Script" uid="uid://cpkbnivocb4a" path="res://scripts/PlayerController.gd" id="1_0wxnd"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_5q5h1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0vlq"]
 size = Vector2(14, 14)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(2, 2)
-script = ExtResource("1_p0vlq")
+script = ExtResource("1_0wxnd")
 SPEED = 270.0
 JUMP_VELOCITY = -510.0
 GRAV_MULT = 1.45
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["Player"]]
 modulate = Color(0.99435, 0.123384, 0.867163, 1)
 scale = Vector2(15, 15)
 texture = SubResource("CanvasTexture_5q5h1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 shape = SubResource("RectangleShape2D_p0vlq")
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["Player"]]

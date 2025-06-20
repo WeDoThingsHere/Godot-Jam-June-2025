@@ -35,5 +35,10 @@ layout_mode = 2
 text = "Quit
 "
 
+[node name="Start Menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start Menu"
+
 [connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Start Menu" to="." method="_on_start_menu_pressed"]

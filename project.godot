@@ -23,6 +23,10 @@ SceneManager="*res://scripts/SceneManager.gd"
 
 window/stretch/mode="viewport"
 
+[global_group]
+
+Player=""
+
 [input]
 
 jump={
