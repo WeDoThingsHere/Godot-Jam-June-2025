@@ -11,10 +11,13 @@ var on: bool = false
 
 var global_polygon: PackedVector2Array
 
+var starting_position: Vector2
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	on = on_immediately
+	starting_position = global_position
 	global_polygon = update_global_polygon()
 	pass
 	
@@ -27,10 +30,12 @@ func turn_on() -> void:
 func turn_off() -> void:
 	visible = false
 	lit_area.lit_platform_boxes.clear()
+	global_position = Vector2(-999999, 999999)
 	clear_created_platforms()
 	lit_area.monitoring = false
 	lit_area.monitorable = false
 	on = false
+	global_position = starting_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

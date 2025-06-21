@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 func set_polygon (polygon: PackedVector2Array) -> void:
 	$StaticBody2D/Polygon2D.polygon = polygon
 	$StaticBody2D/CollisionPolygon2D.polygon = polygon
-	var outline = Geometry2D.offset_polygon(polygon, -1)
+	var outline = Geometry2D.offset_polygon(polygon, -3)
 	if outline.size() > 0:
 		$StaticBody2D/Fill.polygon = outline[0]
 	#print("Solid Platform vertices!")

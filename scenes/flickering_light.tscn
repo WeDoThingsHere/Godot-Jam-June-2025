@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://chu1p12pm1uoa" path="res://scripts/flickering_light.gd" id="1_5ahix"]
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="1_qlewg"]
 
-[node name="FlickeringLight" type="Node2D"]
+[node name="FlickeringLight" type="Node2D" groups=["light_nodes"]]
 script = ExtResource("1_5ahix")
 
 [node name="Light" parent="." instance=ExtResource("1_qlewg")]

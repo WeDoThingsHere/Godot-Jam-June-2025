@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://18f263ca4ehs"]
 
-[ext_resource type="Script" uid="uid://dqp0xay4qe15u" path="res://shadow_area.gd" id="1_odrql"]
+[ext_resource type="Script" uid="uid://dqp0xay4qe15u" path="res://scripts/shadow_area.gd" id="1_odrql"]
 
 [node name="ShadowArea" type="Area2D"]
 script = ExtResource("1_odrql")
