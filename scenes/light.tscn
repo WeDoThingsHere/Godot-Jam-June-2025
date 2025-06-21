@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://u1ld56y5f4he" path="res://scenes/lit_area.tscn" id="2_2e2gu"]
 [ext_resource type="PackedScene" uid="uid://8fl6ml6n68m6" path="res://scenes/solid_platform.tscn" id="2_ky1i4"]
 
-[node name="Light" type="Node2D"]
+[node name="Light" type="Node2D" groups=["light_nodes"]]
 script = ExtResource("1_24oxn")
 solid_platform_object = ExtResource("2_ky1i4")
 on_immediately = true

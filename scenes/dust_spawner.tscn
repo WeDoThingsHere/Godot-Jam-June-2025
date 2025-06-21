@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cw3g6doo1acy4" path="res://assets/sprites/DustParticle.png" id="2_y76fd"]
 
 [sub_resource type="Gradient" id="Gradient_y76fd"]
-colors = PackedColorArray(1, 1, 1, 0.168627, 1, 1, 1, 0.678431)
+colors = PackedColorArray(1, 1, 1, 0.678431, 1, 1, 1, 0)
 
 [node name="DustSpawner" type="Node2D"]
 script = ExtResource("1_y5sjy")
@@ -19,8 +19,9 @@ emission_rect_extents = Vector2(600, 300)
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 3.0
-initial_velocity_max = 15.0
+initial_velocity_max = 11.85
 linear_accel_min = -5.52
+damping_max = 5.52
 scale_amount_min = 0.02
 scale_amount_max = 0.08
 color_ramp = SubResource("Gradient_y76fd")

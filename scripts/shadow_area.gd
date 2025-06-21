@@ -20,6 +20,7 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func _on_area_exited(area: Area2D) -> void:
+	print("Something exited!")
 	light_polygons.erase(area)
 
 func set_collision_shape() -> void:

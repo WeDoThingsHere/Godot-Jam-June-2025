@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 func set_collision_shape() -> void:
 	#print("Platform Box vertices")
 	collision_polygon.polygon = visual_polygon.polygon
-	fill.polygon = Geometry2D.offset_polygon(visual_polygon.polygon, -0.5)[0]
+	fill.polygon = Geometry2D.offset_polygon(visual_polygon.polygon, -2)[0]
 	#print("collision")
 	#var collision_vertices = ""
 	#for vertex in collision_polygon.polygon:
