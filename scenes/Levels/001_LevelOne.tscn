@@ -120,8 +120,13 @@ modulate = Color(1, 1, 1, 0.27451)
 polygon = PackedVector2Array(-112, -40, -112, 56, 0, 56, 0, -40)
 uv = PackedVector2Array(-112, -40, -112, 56, 0, 56, 0, -40)
 
-[node name="Player" parent="." instance=ExtResource("4_o0sr6")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("4_o0sr6")]
 position = Vector2(71, -73)
+collision_layer = 1
+JUMP_VELOCITY = -510.0
+GRAV_MULT = 1.45
+SQUISH_TIME = 0.0
+SQUISH = 0.0
 
 [node name="Killzone" parent="." instance=ExtResource("5_jynpa")]
 position = Vector2(147, 88)

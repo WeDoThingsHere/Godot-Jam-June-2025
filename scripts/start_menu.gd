@@ -10,6 +10,10 @@ enum {
 var LevelToLoad: String = "LevelOne"
 @onready var LevelButtons = $"HBOX Level Selection Container"
 
+#ERic's lights and platforms
+@onready var platforms = $Platforms
+@onready var Light2 = $Platforms/Lvl2/Light1
+@onready var Light3 = $Platforms/Lvl3/Light1
 ##Lights to set visible/invisible
 
 func showLevels() -> void:
@@ -32,16 +36,18 @@ func _process(delta: float) -> void:
 func setvisibility() -> void:
 	if LevelButtons.visible:
 		LevelButtons.visible = false
-		if (SceneManager.checkForCompletion("Level_Two")):
-			if(SceneManager.checkForCompletion("Level_Three")):
-				pass
-				#Light3.visible = true
-			#Light2.visible = true
+		platforms.visible = false
+		Light2.visible = false
+		Light3.visible = false
 	else:
 		LevelButtons.visible = true
-		#Light3.visible = true
-		#Light2.visible = true
+		platforms.visible = true
+		if (SceneManager.checkForCompletion("Level_Two")):
+			Light2.visible = true
+			if(SceneManager.checkForCompletion("Level_Three")):
+				Light3.visible = true
+
 
 func PlayButton() -> void:
 	setvisibility()
-	pass # Replace with function body.
+	

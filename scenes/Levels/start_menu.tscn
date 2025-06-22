@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cp6apdwnnqdvi"]
+[gd_scene load_steps=16 format=3 uid="uid://cp6apdwnnqdvi"]
 
 [ext_resource type="Script" uid="uid://755bklg8k7wo" path="res://scripts/start_menu.gd" id="1_ouf4f"]
 [ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="2_6lfbd"]
@@ -15,6 +15,120 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_wlrfa"]
+resource_name = "movingduh"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0.075, 2.5, 3.45833, 4.91667, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(387, 207), Vector2(431.795, 145.125), Vector2(311.605, 190.19), Vector2(413.26, 235.19), Vector2(387, 207)]
+}
+
+[sub_resource type="Animation" id="Animation_tmywb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3vial"]
+_data = {
+&"RESET": SubResource("Animation_tmywb"),
+&"movingduh": SubResource("Animation_wlrfa")
+}
+
+[sub_resource type="Animation" id="Animation_3vial"]
+resource_name = "new_animation"
+length = 6.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4.5, 6.46667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(330, 173), Vector2(297.02, 217.08), Vector2(380.12, 185.485), Vector2(330, 173)]
+}
+
+[sub_resource type="Animation" id="Animation_ms7f2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(330, 173)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5e4i3"]
+_data = {
+&"RESET": SubResource("Animation_ms7f2"),
+&"new_animation": SubResource("Animation_3vial")
+}
+
+[sub_resource type="Animation" id="Animation_6c34g"]
+resource_name = "new_animation"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.53333, 4, 5.16667, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(400, 228), Vector2(372.995, 269.78), Vector2(354.87, 181.43), Vector2(425.665, 202.885), Vector2(401.035, 242.13), Vector2(400, 228)]
+}
+
+[sub_resource type="Animation" id="Animation_qbuss"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(400, 228)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i11vo"]
+_data = {
+&"RESET": SubResource("Animation_qbuss"),
+&"new_animation": SubResource("Animation_6c34g")
+}
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -63,23 +177,25 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_m7x51")
 text = "Play"
 
 [node name="Platforms" type="Node2D" parent="."]
+visible = false
 position = Vector2(59, 89)
 
 [node name="Lvl1" type="Node2D" parent="Platforms"]
 
-[node name="Light" parent="Platforms/Lvl1" instance=ExtResource("4_wlrfa")]
-position = Vector2(420, 324)
+[node name="Light1" parent="Platforms/Lvl1" instance=ExtResource("4_wlrfa")]
+position = Vector2(387, 207)
+rotation = -0.23911
 
-[node name="CreatedPlatforms" parent="Platforms/Lvl1/Light" index="0"]
-z_index = -1
+[node name="Polygon2D" parent="Platforms/Lvl1/Light1/LitArea" index="1"]
+modulate = Color(1, 1, 1, 0.27451)
+polygon = PackedVector2Array(-140.033, -27.8162, -131.542, -49.5224, -120.79, -60.5775, -108.067, -69.6652, -88.0742, -79.6616, -64.446, -83.2967, -45.3619, -82.388, -18.0988, -75.1178, 2.80305, -61.4862, 13.7082, -48.7634, 22.2247, -32.3402, 28.0078, -10.8602, 28.8121, 8.93458, 27.1593, 29.5957, 18.0684, 47.7776, 7.32456, 63.48, -8.37792, 75.0503, -29.8655, 83.3148, -54.4642, 85.534, -72.8408, 84.1412, -93.502, 79.1825, -111.684, 70.0916, -124.08, 59.3478, -133.998, 46.9511, -140.423, 26.7186, -143.669, 13.0786, -143.669, -4.18807)
+uv = PackedVector2Array(-128, -16, -120, -40, -112, -48, -104, -48, -88, -56, -64, -72, -56, -72, -40, -64, -32, -64, -24, -56, -16, -48, -16, -40, 0, -8, 0, 16, -8, 24, -16, 40, -24, 56, -40, 56, -48, 56, -64, 56, -72, 56, -88, 56, -104, 32, -112, 24, -120, 16, -120, 8, -120, 0)
 
-[node name="LitArea" parent="Platforms/Lvl1/Light" index="1"]
-visible = false
-
-[node name="Polygon2D" parent="Platforms/Lvl1/Light/LitArea" index="1"]
-visible = false
-polygon = PackedVector2Array(-136, -144, -136, -40, -40, -40, -40, -144)
-uv = PackedVector2Array(-128, -112, -128, -48, -80, -48, -80, -112)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Lvl1/Light1"]
+libraries = {
+&"": SubResource("AnimationLibrary_3vial")
+}
+autoplay = "movingduh"
 
 [node name="PlatformBox" parent="Platforms/Lvl1" instance=ExtResource("2_6lfbd")]
 position = Vector2(469, 256)
@@ -91,20 +207,6 @@ uv = PackedVector2Array(-176, -72, -176, -8, -104, -8, -104, -72)
 [node name="Lvl2" type="Node2D" parent="Platforms"]
 position = Vector2(183, 0)
 
-[node name="Light" parent="Platforms/Lvl2" instance=ExtResource("4_wlrfa")]
-position = Vector2(420, 324)
-
-[node name="CreatedPlatforms" parent="Platforms/Lvl2/Light" index="0"]
-z_index = -1
-
-[node name="LitArea" parent="Platforms/Lvl2/Light" index="1"]
-visible = false
-
-[node name="Polygon2D" parent="Platforms/Lvl2/Light/LitArea" index="1"]
-visible = false
-polygon = PackedVector2Array(-136, -144, -136, -40, -40, -40, -40, -144)
-uv = PackedVector2Array(-128, -112, -128, -48, -80, -48, -80, -112)
-
 [node name="PlatformBox" parent="Platforms/Lvl2" instance=ExtResource("2_6lfbd")]
 position = Vector2(469, 256)
 
@@ -112,22 +214,24 @@ position = Vector2(469, 256)
 polygon = PackedVector2Array(-176, -72, -176, 20, -93, 20, -93, -72)
 uv = PackedVector2Array(-176, -72, -176, -8, -104, -8, -104, -72)
 
+[node name="Light1" parent="Platforms/Lvl2" instance=ExtResource("4_wlrfa")]
+visible = false
+position = Vector2(330, 173)
+rotation = -1.58999
+
+[node name="Polygon2D" parent="Platforms/Lvl2/Light1/LitArea" index="1"]
+modulate = Color(1, 1, 1, 0.27451)
+polygon = PackedVector2Array(-140.033, -27.8162, -131.542, -49.5224, -120.79, -60.5775, -108.067, -69.6652, -88.0742, -79.6616, -64.446, -83.2967, -45.3619, -82.388, -18.0988, -75.1178, 2.80305, -61.4862, 13.7082, -48.7634, 22.2247, -32.3402, 28.0078, -10.8602, 28.8121, 8.93458, 27.1593, 29.5957, 18.0684, 47.7776, 7.32456, 63.48, -8.37792, 75.0503, -29.8655, 83.3148, -54.4642, 85.534, -72.8408, 84.1412, -93.502, 79.1825, -111.684, 70.0916, -124.08, 59.3478, -133.998, 46.9511, -140.423, 26.7186, -143.669, 13.0786, -143.669, -4.18807)
+uv = PackedVector2Array(-128, -16, -120, -40, -112, -48, -104, -48, -88, -56, -64, -72, -56, -72, -40, -64, -32, -64, -24, -56, -16, -48, -16, -40, 0, -8, 0, 16, -8, 24, -16, 40, -24, 56, -40, 56, -48, 56, -64, 56, -72, 56, -88, 56, -104, 32, -112, 24, -120, 16, -120, 8, -120, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Lvl2/Light1"]
+libraries = {
+&"": SubResource("AnimationLibrary_5e4i3")
+}
+autoplay = "new_animation"
+
 [node name="Lvl3" type="Node2D" parent="Platforms"]
 position = Vector2(366, 0)
-
-[node name="Light" parent="Platforms/Lvl3" instance=ExtResource("4_wlrfa")]
-position = Vector2(420, 324)
-
-[node name="CreatedPlatforms" parent="Platforms/Lvl3/Light" index="0"]
-z_index = -1
-
-[node name="LitArea" parent="Platforms/Lvl3/Light" index="1"]
-visible = false
-
-[node name="Polygon2D" parent="Platforms/Lvl3/Light/LitArea" index="1"]
-visible = false
-polygon = PackedVector2Array(-136, -144, -136, -40, -40, -40, -40, -144)
-uv = PackedVector2Array(-128, -112, -128, -48, -80, -48, -80, -112)
 
 [node name="PlatformBox" parent="Platforms/Lvl3" instance=ExtResource("2_6lfbd")]
 position = Vector2(469, 256)
@@ -136,7 +240,23 @@ position = Vector2(469, 256)
 polygon = PackedVector2Array(-176, -72, -176, 20, -93, 20, -93, -72)
 uv = PackedVector2Array(-176, -72, -176, -8, -104, -8, -104, -72)
 
+[node name="Light1" parent="Platforms/Lvl3" instance=ExtResource("4_wlrfa")]
+visible = false
+position = Vector2(400, 228)
+
+[node name="Polygon2D" parent="Platforms/Lvl3/Light1/LitArea" index="1"]
+modulate = Color(1, 1, 1, 0.27451)
+polygon = PackedVector2Array(-140.033, -27.8162, -131.542, -49.5224, -120.79, -60.5775, -108.067, -69.6652, -88.0742, -79.6616, -64.446, -83.2967, -45.3619, -82.388, -18.0988, -75.1178, 2.80305, -61.4862, 13.7082, -48.7634, 22.2247, -32.3402, 28.0078, -10.8602, 28.8121, 8.93458, 27.1593, 29.5957, 18.0684, 47.7776, 7.32456, 63.48, -8.37792, 75.0503, -29.8655, 83.3148, -54.4642, 85.534, -72.8408, 84.1412, -93.502, 79.1825, -111.684, 70.0916, -124.08, 59.3478, -133.998, 46.9511, -140.423, 26.7186, -143.669, 13.0786, -143.669, -4.18807)
+uv = PackedVector2Array(-128, -16, -120, -40, -112, -48, -104, -48, -88, -56, -64, -72, -56, -72, -40, -64, -32, -64, -24, -56, -16, -48, -16, -40, 0, -8, 0, 16, -8, 24, -16, 40, -24, 56, -40, 56, -48, 56, -64, 56, -72, 56, -88, 56, -104, 32, -112, 24, -120, 16, -120, 8, -120, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Lvl3/Light1"]
+libraries = {
+&"": SubResource("AnimationLibrary_i11vo")
+}
+autoplay = "new_animation"
+
 [node name="HBOX Level Selection Container" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -153,7 +273,7 @@ theme_override_constants/separation = 100
 alignment = 1
 
 [node name="LevelOne" type="Button" parent="HBOX Level Selection Container"]
-z_index = 1
+z_index = 5
 layout_mode = 2
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 30
@@ -163,7 +283,7 @@ flat = true
 script = ExtResource("2_thu50")
 
 [node name="LevelTwo" type="Button" parent="HBOX Level Selection Container"]
-z_index = 1
+z_index = 5
 layout_mode = 2
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 30
@@ -174,7 +294,7 @@ script = ExtResource("2_thu50")
 LevelToLoad = "Level_Two"
 
 [node name="LevelThree" type="Button" parent="HBOX Level Selection Container"]
-z_index = 1
+z_index = 5
 layout_mode = 2
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 30
@@ -189,12 +309,12 @@ LevelToLoad = "Level_Three"
 [connection signal="pressed" from="HBOX Level Selection Container/LevelTwo" to="HBOX Level Selection Container/LevelTwo" method="OnPress"]
 [connection signal="pressed" from="HBOX Level Selection Container/LevelThree" to="HBOX Level Selection Container/LevelThree" method="OnPress"]
 
-[editable path="Platforms/Lvl1/Light"]
-[editable path="Platforms/Lvl1/Light/LitArea"]
+[editable path="Platforms/Lvl1/Light1"]
+[editable path="Platforms/Lvl1/Light1/LitArea"]
 [editable path="Platforms/Lvl1/PlatformBox"]
-[editable path="Platforms/Lvl2/Light"]
-[editable path="Platforms/Lvl2/Light/LitArea"]
 [editable path="Platforms/Lvl2/PlatformBox"]
-[editable path="Platforms/Lvl3/Light"]
-[editable path="Platforms/Lvl3/Light/LitArea"]
+[editable path="Platforms/Lvl2/Light1"]
+[editable path="Platforms/Lvl2/Light1/LitArea"]
 [editable path="Platforms/Lvl3/PlatformBox"]
+[editable path="Platforms/Lvl3/Light1"]
+[editable path="Platforms/Lvl3/Light1/LitArea"]
