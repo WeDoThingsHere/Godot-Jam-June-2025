@@ -13,4 +13,7 @@ on_immediately = true
 
 [node name="LitArea" parent="." groups=["lights"] instance=ExtResource("2_2e2gu")]
 
+[node name="CollisionPolygon2D" parent="LitArea" index="0"]
+visible = false
+
 [editable path="LitArea"]

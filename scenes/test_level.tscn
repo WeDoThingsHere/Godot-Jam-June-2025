@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://7umihpbmmlyo"]
+[gd_scene load_steps=4 format=3 uid="uid://1vc1bw8cjbem"]
 
 [ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="1_paw1w"]
 [ext_resource type="PackedScene" uid="uid://nhxnwxvg7tii" path="res://scenes/Prefabs/Player.tscn" id="2_j6w7d"]
