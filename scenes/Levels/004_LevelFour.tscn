@@ -1,0 +1,210 @@
+[gd_scene load_steps=15 format=3 uid="uid://b2r5q3ubs8oeu"]
+
+[ext_resource type="PackedScene" uid="uid://dunadgt76ux7n" path="res://scenes/Prefabs/EveryGameScene.tscn" id="1_gi4ga"]
+[ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="2_odp63"]
+[ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="3_eecm2"]
+[ext_resource type="PackedScene" uid="uid://d0p3djj4uybf5" path="res://scenes/flickering_light.tscn" id="3_gi4ga"]
+[ext_resource type="PackedScene" uid="uid://da0vb48bj51jb" path="res://scenes/Prefabs/Goal.tscn" id="4_auy48"]
+[ext_resource type="PackedScene" uid="uid://bhfabwws43023" path="res://scenes/dust_spawner.tscn" id="5_avej0"]
+[ext_resource type="PackedScene" uid="uid://cq310hw2aa0yd" path="res://scenes/true_platform.tscn" id="6_iv4gd"]
+[ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="7_621bl"]
+[ext_resource type="PackedScene" uid="uid://cn6mjaf1avpfd" path="res://scenes/Player.tscn" id="8_os36c"]
+
+[sub_resource type="Animation" id="Animation_odp63"]
+resource_name = "move"
+length = 9.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.53, 9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.287979, 0.287979, -0.287979]
+}
+
+[sub_resource type="Animation" id="Animation_eecm2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.287979]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_auy48"]
+_data = {
+&"RESET": SubResource("Animation_eecm2"),
+&"move": SubResource("Animation_odp63")
+}
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_odp63"]
+normal = Vector2(0.999884, -0.0152654)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eecm2"]
+
+[node name="004LevelFour" type="Node2D"]
+
+[node name="EveryGameScene" parent="." instance=ExtResource("1_gi4ga")]
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="PlatformBox2" parent="Platforms" instance=ExtResource("2_odp63")]
+position = Vector2(226, 45)
+
+[node name="PlatformArea" parent="Platforms/PlatformBox2" index="0"]
+position = Vector2(59, 57)
+
+[node name="Bounds" parent="Platforms/PlatformBox2/PlatformArea" index="0"]
+polygon = PackedVector2Array(-496, -40, -64, -40, -64, 8, -496, 8)
+uv = PackedVector2Array(-168, -72, 240, -72, 240, 24, -168, 24)
+
+[node name="PlatformBox" parent="Platforms" instance=ExtResource("2_odp63")]
+position = Vector2(-50, -68)
+
+[node name="PlatformArea" parent="Platforms/PlatformBox" index="0"]
+position = Vector2(59, 57)
+
+[node name="Bounds" parent="Platforms/PlatformBox/PlatformArea" index="0"]
+polygon = PackedVector2Array(-320, -104, -240, -104, -240, 264, -320, 264)
+uv = PackedVector2Array(-168, -72, 240, -72, 240, 24, -168, 24)
+
+[node name="PlatformBox3" parent="Platforms" instance=ExtResource("2_odp63")]
+position = Vector2(513, -66)
+
+[node name="PlatformArea" parent="Platforms/PlatformBox3" index="0"]
+position = Vector2(59, 57)
+
+[node name="Bounds" parent="Platforms/PlatformBox3/PlatformArea" index="0"]
+polygon = PackedVector2Array(-320, -104, -240, -104, -240, 264, -320, 264)
+uv = PackedVector2Array(-168, -72, 240, -72, 240, 24, -168, 24)
+
+[node name="Lights" type="Node2D" parent="."]
+position = Vector2(-67, -263)
+
+[node name="FlickeringLight" parent="Lights" instance=ExtResource("3_gi4ga")]
+position = Vector2(-103, 0)
+loop = true
+
+[node name="Light" parent="Lights/FlickeringLight" index="0"]
+position = Vector2(-58, -224)
+
+[node name="Polygon2D" parent="Lights/FlickeringLight/Light/LitArea" index="1"]
+polygon = PackedVector2Array(-96, -40, -8, -40, 63.9998, 1624, -128.001, 1528)
+uv = PackedVector2Array(-96, -40, -8, -40, 80, 1424, -312, 1704)
+
+[node name="Timer" parent="Lights/FlickeringLight" index="1"]
+wait_time = 1.5
+
+[node name="FlickeringLight2" parent="Lights" instance=ExtResource("3_gi4ga")]
+position = Vector2(469, 2)
+loop = true
+
+[node name="Light" parent="Lights/FlickeringLight2" index="0"]
+position = Vector2(-58, -224)
+on_immediately = false
+
+[node name="Polygon2D" parent="Lights/FlickeringLight2/Light/LitArea" index="1"]
+polygon = PackedVector2Array(-96, -40, -8, -40, 63.9998, 1624, -128.001, 1528)
+uv = PackedVector2Array(-96, -40, -8, -40, 80, 1424, -312, 1704)
+
+[node name="Timer" parent="Lights/FlickeringLight2" index="1"]
+wait_time = 1.5
+
+[node name="TiltingLight" parent="Lights" instance=ExtResource("3_eecm2")]
+position = Vector2(71, -281)
+rotation = -0.287979
+
+[node name="Polygon2D" parent="Lights/TiltingLight/LitArea" index="1"]
+polygon = PackedVector2Array(-36.5814, -1203.59, 25.5268, -1203.59, 149.744, 2709.24, -98.6899, 2729.95)
+uv = PackedVector2Array(-12.2161, -3.31395, 7.59131, -3.99697, 72.6787, 1698.34, -150.191, 1698.34)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/TiltingLight"]
+libraries = {
+&"": SubResource("AnimationLibrary_auy48")
+}
+autoplay = "move"
+
+[node name="Goal" parent="." instance=ExtResource("4_auy48")]
+position = Vector2(472, 43)
+Level_To_Unlock = "Level_Two"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="DustSpawner" parent="." instance=ExtResource("5_avej0")]
+position = Vector2(2, -11)
+
+[node name="True Platforms" type="Node2D" parent="."]
+z_index = 1
+
+[node name="TruePlatform2" parent="True Platforms" instance=ExtResource("6_iv4gd")]
+position = Vector2(678, 132)
+
+[node name="bounds" parent="True Platforms/TruePlatform2/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-288, -64, 0, -64, 0, 144, 0, 312, -208, 312, -288, 304)
+uv = PackedVector2Array(-264, -64, 0, -64, 0, 144, 0, 312, -208, 312, -272, 312)
+
+[node name="TruePlatform1" parent="True Platforms" instance=ExtResource("6_iv4gd")]
+position = Vector2(-385, 134)
+
+[node name="bounds" parent="True Platforms/TruePlatform1/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-288, -64, 0, -64, 0, 144, 0, 312, -208, 312, -288, 304)
+uv = PackedVector2Array(-264, -64, 0, -64, 0, 144, 0, 312, -208, 312, -272, 312)
+
+[node name="WorldBounds" type="Node2D" parent="."]
+
+[node name="RightBounds" type="StaticBody2D" parent="WorldBounds"]
+position = Vector2(-576, 0)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds/RightBounds"]
+shape = SubResource("WorldBoundaryShape2D_odp63")
+
+[node name="LeftBounds" type="StaticBody2D" parent="WorldBounds"]
+position = Vector2(577, 0)
+rotation = 3.14159
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds/LeftBounds"]
+shape = SubResource("WorldBoundaryShape2D_odp63")
+
+[node name="Killzone" parent="WorldBounds" instance=ExtResource("7_621bl")]
+position = Vector2(0, 323)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds/Killzone"]
+shape = SubResource("WorldBoundaryShape2D_eecm2")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -3249.0
+offset_top = -2255.0
+offset_right = 3379.0
+offset_bottom = 1950.0
+color = Color(0.0705882, 0.0705882, 0.129412, 1)
+
+[node name="Player" parent="." instance=ExtResource("8_os36c")]
+position = Vector2(-521, 51)
+
+[editable path="Platforms/PlatformBox2"]
+[editable path="Platforms/PlatformBox"]
+[editable path="Platforms/PlatformBox3"]
+[editable path="Lights/FlickeringLight"]
+[editable path="Lights/FlickeringLight/Light"]
+[editable path="Lights/FlickeringLight/Light/LitArea"]
+[editable path="Lights/FlickeringLight2"]
+[editable path="Lights/FlickeringLight2/Light"]
+[editable path="Lights/FlickeringLight2/Light/LitArea"]
+[editable path="Lights/TiltingLight"]
+[editable path="Lights/TiltingLight/LitArea"]
+[editable path="True Platforms/TruePlatform2"]
+[editable path="True Platforms/TruePlatform1"]

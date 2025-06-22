@@ -16,4 +16,7 @@ on_immediately = true
 [node name="CollisionPolygon2D" parent="LitArea" index="0"]
 visible = false
 
+[node name="Polygon2D" parent="LitArea" index="1"]
+modulate = Color(1, 1, 1, 0.686275)
+
 [editable path="LitArea"]

@@ -3,42 +3,41 @@
 [ext_resource type="PackedScene" uid="uid://dunadgt76ux7n" path="res://scenes/Prefabs/EveryGameScene.tscn" id="1_6tan5"]
 [ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="2_hkq2j"]
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="3_a2ux5"]
-[ext_resource type="PackedScene" uid="uid://nhxnwxvg7tii" path="res://scenes/Prefabs/Player.tscn" id="4_o0sr6"]
 [ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="5_jynpa"]
 [ext_resource type="PackedScene" uid="uid://da0vb48bj51jb" path="res://scenes/Prefabs/Goal.tscn" id="6_7u874"]
-[ext_resource type="PackedScene" path="res://scenes/true_platform.tscn" id="7_hkq2j"]
+[ext_resource type="PackedScene" uid="uid://cq310hw2aa0yd" path="res://scenes/true_platform.tscn" id="7_hkq2j"]
 [ext_resource type="PackedScene" uid="uid://bhfabwws43023" path="res://scenes/dust_spawner.tscn" id="8_a2ux5"]
+[ext_resource type="PackedScene" uid="uid://cn6mjaf1avpfd" path="res://scenes/Player.tscn" id="8_o0sr6"]
 
 [sub_resource type="Animation" id="Animation_y8fji"]
 length = 0.001
-tracks/0/type = "value"
+tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-96, -1068)]
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.305433, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id="Animation_hkq2j"]
 resource_name = "swing"
-length = 8.0
+length = 6.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 4, 8),
+"times": PackedFloat32Array(0, 3, 6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-96, -1068), Vector2(280, -1068), Vector2(-96, -1068)]
+"values": [0.18675, -0.0925025, 0.18675]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nf86m"]
@@ -47,10 +46,10 @@ _data = {
 &"swing": SubResource("Animation_hkq2j")
 }
 
-[sub_resource type="Gradient" id="Gradient_fsjfv"]
+[sub_resource type="Gradient" id="Gradient_a2ux5"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_urr3w"]
-gradient = SubResource("Gradient_fsjfv")
+gradient = SubResource("Gradient_a2ux5")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hkq2j"]
 normal = Vector2(0.999884, -0.0152654)
@@ -87,11 +86,10 @@ uv = PackedVector2Array(-240, 24, -240, -96, -368, -96, -368, -32, -296, -32, -2
 position = Vector2(-67, -263)
 
 [node name="TiltingLight" parent="Lights" instance=ExtResource("3_a2ux5")]
-position = Vector2(-96, -1068)
+position = Vector2(71, -785)
 rotation = -0.305433
 
 [node name="Polygon2D" parent="Lights/TiltingLight/LitArea" index="1"]
-modulate = Color(1, 1, 1, 0.745098)
 polygon = PackedVector2Array(-14.5551, -3.9146, 7.59131, -3.99697, 72.6787, 1698.34, -150.191, 1698.34)
 uv = PackedVector2Array(-12.2161, -3.31395, 7.59131, -3.99697, 72.6787, 1698.34, -150.191, 1698.34)
 
@@ -100,9 +98,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_nf86m")
 }
 autoplay = "swing"
-
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("4_o0sr6")]
-position = Vector2(-499, -65)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 visible = false
@@ -166,6 +161,9 @@ offset_top = -2255.0
 offset_right = 3379.0
 offset_bottom = 1950.0
 color = Color(0.0705882, 0.0705882, 0.129412, 1)
+
+[node name="Player" parent="." instance=ExtResource("8_o0sr6")]
+position = Vector2(-521, 48)
 
 [editable path="Platforms/PlatformBox"]
 [editable path="Platforms/PlatformBox2"]

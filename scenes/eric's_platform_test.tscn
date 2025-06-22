@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://brik828nmalxf"]
 
-[ext_resource type="PackedScene" uid="uid://nhxnwxvg7tii" path="res://scenes/Prefabs/Player.tscn" id="1_ty0f3"]
+[ext_resource type="PackedScene" uid="uid://cn6mjaf1avpfd" path="res://scenes/Player.tscn" id="1_ty0f3"]
 [ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="2_ufmrn"]
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="3_mx8qg"]
 [ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="4_y8fji"]
@@ -38,7 +38,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3, 6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.270526, -0.240855, 0.270526]
+"values": [0.18675, -0.0925025, 0.18675]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nf86m"]
@@ -86,10 +86,6 @@ _data = {
 }
 
 [node name="Eric\'s Platform Test" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource("1_ty0f3")]
-z_index = 5
-position = Vector2(71, -73)
 
 [node name="Killzone" parent="." instance=ExtResource("2_ufmrn")]
 position = Vector2(140, 228)
@@ -218,6 +214,10 @@ position = Vector2(304, 127)
 [node name="bounds" parent="TruePlatform/StaticBody2D" index="0"]
 polygon = PackedVector2Array(-376, -32, -376, 72, -80, 72, -80, -32)
 uv = PackedVector2Array(-376, -32, -376, 72, -80, 72, -80, -32)
+
+[node name="Player2" parent="." instance=ExtResource("1_ty0f3")]
+z_index = 2
+position = Vector2(44, -68)
 
 [editable path="Lights/Light1"]
 [editable path="Lights/Light1/LitArea"]

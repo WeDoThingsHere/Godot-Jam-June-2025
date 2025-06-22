@@ -1,0 +1,290 @@
+[gd_scene load_steps=20 format=3 uid="uid://dvhpbjmgumk6k"]
+
+[ext_resource type="PackedScene" uid="uid://dunadgt76ux7n" path="res://scenes/Prefabs/EveryGameScene.tscn" id="1_hjd51"]
+[ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="2_qwptg"]
+[ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="3_vxj43"]
+[ext_resource type="PackedScene" uid="uid://da0vb48bj51jb" path="res://scenes/Prefabs/Goal.tscn" id="4_dc6it"]
+[ext_resource type="PackedScene" uid="uid://bhfabwws43023" path="res://scenes/dust_spawner.tscn" id="5_i6mds"]
+[ext_resource type="PackedScene" uid="uid://cq310hw2aa0yd" path="res://scenes/true_platform.tscn" id="6_fe2my"]
+[ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="7_f1y6j"]
+[ext_resource type="PackedScene" uid="uid://cn6mjaf1avpfd" path="res://scenes/Player.tscn" id="8_7ntk6"]
+
+[sub_resource type="Animation" id="Animation_hjd51"]
+resource_name = "move"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(383, -96), Vector2(627.055, -96), Vector2(383, -96)]
+}
+
+[sub_resource type="Animation" id="Animation_qwptg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(426, -96)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vxj43"]
+_data = {
+&"RESET": SubResource("Animation_qwptg"),
+&"move": SubResource("Animation_hjd51")
+}
+
+[sub_resource type="Animation" id="Animation_y8fji"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.305433, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_hkq2j"]
+resource_name = "swing"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.18675, -0.0925025, 0.18675]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nf86m"]
+_data = {
+&"RESET": SubResource("Animation_y8fji"),
+&"swing": SubResource("Animation_hkq2j")
+}
+
+[sub_resource type="Animation" id="Animation_7j7xi"]
+resource_name = "move"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667, 3.33333, 5.23333, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(9, 11), Vector2(20, 13), Vector2(11, 10), Vector2(20, 11), Vector2(9, 11)]
+}
+
+[sub_resource type="Animation" id="Animation_2ks6o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9, 11)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tdl83"]
+_data = {
+&"RESET": SubResource("Animation_2ks6o"),
+&"move": SubResource("Animation_7j7xi")
+}
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pf138"]
+normal = Vector2(0.999884, -0.0152654)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ibp1i"]
+
+[node name="005LevelFive" type="Node2D"]
+
+[node name="EveryGameScene" parent="." instance=ExtResource("1_hjd51")]
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="PlatformBox" parent="Platforms" instance=ExtResource("2_qwptg")]
+position = Vector2(-165, -81)
+
+[node name="PlatformArea" parent="Platforms/PlatformBox" index="0"]
+position = Vector2(59, 57)
+
+[node name="Bounds" parent="Platforms/PlatformBox/PlatformArea" index="0"]
+polygon = PackedVector2Array(-248, 16, -192, 16, -192, -72, -192, -80, -192, -96, -120, -96, -120, 40, -248, 40)
+uv = PackedVector2Array(-248, 16, -176, 16, -176, -72, -224, -72, -224, -96, -120, -96, -120, 64, -248, 64)
+
+[node name="PlatformBox2" parent="Platforms" instance=ExtResource("2_qwptg")]
+position = Vector2(-406, -48)
+
+[node name="PlatformArea" parent="Platforms/PlatformBox2" index="0"]
+position = Vector2(59, 57)
+
+[node name="Bounds" parent="Platforms/PlatformBox2/PlatformArea" index="0"]
+polygon = PackedVector2Array(-344, -72, -96.0001, -72, -96.0001, -48, -344, -48)
+uv = PackedVector2Array(-344, -72, -96.0001, -72, -96.0001, -48, -344, -48)
+
+[node name="PlatformBox3" parent="Platforms" instance=ExtResource("2_qwptg")]
+position = Vector2(426, -96)
+
+[node name="PlatformArea" parent="Platforms/PlatformBox3" index="0"]
+position = Vector2(59, 57)
+
+[node name="Bounds" parent="Platforms/PlatformBox3/PlatformArea" index="0"]
+polygon = PackedVector2Array(-344, -120, -120, -120, -120, 0, -344, 0)
+uv = PackedVector2Array(-344, -72, -96.0001, -72, -96.0001, -48, -344, -48)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/PlatformBox3"]
+libraries = {
+&"": SubResource("AnimationLibrary_vxj43")
+}
+autoplay = "move"
+
+[node name="Lights" type="Node2D" parent="."]
+position = Vector2(-67, -263)
+
+[node name="TiltingLight" parent="Lights" instance=ExtResource("3_vxj43")]
+position = Vector2(-265, -1011)
+rotation = -0.305433
+
+[node name="Polygon2D" parent="Lights/TiltingLight/LitArea" index="1"]
+polygon = PackedVector2Array(-14.5551, -3.9146, 7.59131, -3.99697, 72.6787, 1698.34, -150.191, 1698.34)
+uv = PackedVector2Array(-12.2161, -3.31395, 7.59131, -3.99697, 72.6787, 1698.34, -150.191, 1698.34)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/TiltingLight"]
+libraries = {
+&"": SubResource("AnimationLibrary_nf86m")
+}
+autoplay = "swing"
+
+[node name="Light2" type="Node2D" parent="Lights"]
+position = Vector2(365, 196)
+
+[node name="Light2" parent="Lights/Light2" instance=ExtResource("3_vxj43")]
+position = Vector2(9, 11)
+scale = Vector2(0.999999, 0.999999)
+
+[node name="Polygon2D" parent="Lights/Light2/Light2/LitArea" index="1"]
+polygon = PackedVector2Array(-200, -104, -16, -104, -16, -32, 152, -32, 152, 16, 40, 16, -56, 16, -200, 16)
+uv = PackedVector2Array(-200, -136, -56.0001, -136, -56.0001, -24, 160, -24, 152, 32, -56.0001, 32, -56.0001, 128, -208, 128)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/Light2/Light2"]
+libraries = {
+&"": SubResource("AnimationLibrary_tdl83")
+}
+autoplay = "move"
+
+[node name="Goal" parent="." instance=ExtResource("4_dc6it")]
+position = Vector2(521, -262)
+Level_To_Unlock = "Level_Two"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="DustSpawner" parent="." instance=ExtResource("5_i6mds")]
+position = Vector2(2, -11)
+
+[node name="True Platforms" type="Node2D" parent="."]
+z_index = 1
+
+[node name="TruePlatform" parent="True Platforms" instance=ExtResource("6_fe2my")]
+position = Vector2(-311, 140)
+
+[node name="bounds" parent="True Platforms/TruePlatform/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-32, 224, -112, 224, -104, 192, -104, 8, -104, -80, -344, -80, -344, 256, 32, 256, 24, 216)
+uv = PackedVector2Array(24, 104, -48, 104, -48, 8, -104, 8, -104, -80, -344, -80, -344, 256, 32, 256, 24, 216)
+
+[node name="TruePlatform2" parent="True Platforms" instance=ExtResource("6_fe2my")]
+position = Vector2(180, 24)
+
+[node name="bounds" parent="True Platforms/TruePlatform2/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-224, -64, 0, -64, 0, 144, 0, 312, -136, 312, -224, 312)
+uv = PackedVector2Array(-264, -64, 0, -64, 0, 144, 0, 312, -208, 312, -272, 312)
+
+[node name="TruePlatform3" parent="True Platforms" instance=ExtResource("6_fe2my")]
+position = Vector2(180, -472)
+
+[node name="bounds" parent="True Platforms/TruePlatform3/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-8.39233e-05, -120, 0, 264, 0, 312, -176, 312, -176, -120, -112, -120)
+uv = PackedVector2Array(-264, -64, 0, -64, 0, 144, 0, 312, -208, 312, -272, 312)
+
+[node name="TruePlatform4" parent="True Platforms" instance=ExtResource("6_fe2my")]
+position = Vector2(671, -127)
+
+[node name="bounds" parent="True Platforms/TruePlatform4/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-328, -72, 128, -72, 128, -88, 128, -112, -328, -112)
+uv = PackedVector2Array(-272, -48, -264, 8, 104, 0, 128, -112, -312, -120)
+
+[node name="WorldBounds" type="Node2D" parent="."]
+
+[node name="RightBounds" type="StaticBody2D" parent="WorldBounds"]
+position = Vector2(-576, 0)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds/RightBounds"]
+shape = SubResource("WorldBoundaryShape2D_pf138")
+
+[node name="LeftBounds" type="StaticBody2D" parent="WorldBounds"]
+position = Vector2(577, 0)
+rotation = 3.14159
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds/LeftBounds"]
+shape = SubResource("WorldBoundaryShape2D_pf138")
+
+[node name="Killzone" parent="WorldBounds" instance=ExtResource("7_f1y6j")]
+position = Vector2(0, 323)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds/Killzone"]
+shape = SubResource("WorldBoundaryShape2D_ibp1i")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -3249.0
+offset_top = -2255.0
+offset_right = 3379.0
+offset_bottom = 1950.0
+color = Color(0.0705882, 0.0705882, 0.129412, 1)
+
+[node name="Player" parent="." instance=ExtResource("8_7ntk6")]
+position = Vector2(-516, 44)
+
+[editable path="Platforms/PlatformBox"]
+[editable path="Platforms/PlatformBox2"]
+[editable path="Platforms/PlatformBox3"]
+[editable path="Lights/TiltingLight"]
+[editable path="Lights/TiltingLight/LitArea"]
+[editable path="Lights/Light2/Light2"]
+[editable path="Lights/Light2/Light2/LitArea"]
+[editable path="True Platforms/TruePlatform"]
+[editable path="True Platforms/TruePlatform2"]
+[editable path="True Platforms/TruePlatform3"]
+[editable path="True Platforms/TruePlatform4"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=17 format=3 uid="uid://cp6apdwnnqdvi"]
 
-[ext_resource type="Script" uid="uid://755bklg8k7wo" path="res://scripts/start_menu.gd" id="1_ouf4f"]
+[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_ouf4f"]
 [ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="2_6lfbd"]
-[ext_resource type="Script" uid="uid://boutl5a063ps7" path="res://LevelSelection.gd" id="2_thu50"]
+[ext_resource type="Script" path="res://LevelSelection.gd" id="2_thu50"]
 [ext_resource type="FontFile" uid="uid://cy47fpiq1bxem" path="res://assets/Chunq.ttf" id="2_tmywb"]
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="4_wlrfa"]
 
