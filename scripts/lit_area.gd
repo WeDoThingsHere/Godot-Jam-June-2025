@@ -14,10 +14,6 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func update_global_polygon() -> PackedVector2Array:
 	var global_poly = collision_polygon.polygon
 	for n in collision_polygon.polygon.size():
