@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d1ktmmfx5hj5r"]
+[gd_scene load_steps=17 format=3 uid="uid://d1ktmmfx5hj5r"]
 
 [ext_resource type="PackedScene" uid="uid://dunadgt76ux7n" path="res://scenes/Prefabs/EveryGameScene.tscn" id="1_6tan5"]
 [ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="2_hkq2j"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" path="res://scenes/true_platform.tscn" id="7_hkq2j"]
 [ext_resource type="PackedScene" uid="uid://bhfabwws43023" path="res://scenes/dust_spawner.tscn" id="8_a2ux5"]
 [ext_resource type="PackedScene" uid="uid://cn6mjaf1avpfd" path="res://scenes/Prefabs/Player.tscn" id="8_o0sr6"]
+[ext_resource type="FontFile" uid="uid://cy47fpiq1bxem" path="res://assets/Chunq.ttf" id="9_o0sr6"]
 
 [sub_resource type="Animation" id="Animation_o0sr6"]
 length = 0.001
@@ -168,6 +169,39 @@ position = Vector2(-521, 48)
 SQUISH_TIME = 0.0
 SQUISH = 0.0
 COYOTE_TIME = 0.0
+
+[node name="Controls" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -577.0
+offset_top = -322.0
+offset_right = 578.0
+offset_bottom = 325.0
+
+[node name="controls" type="Label" parent="Controls"]
+layout_mode = 0
+offset_left = 169.0
+offset_top = 127.0
+offset_right = 209.0
+offset_bottom = 150.0
+theme_override_constants/line_spacing = 4
+theme_override_fonts/font = ExtResource("9_o0sr6")
+theme_override_font_sizes/font_size = 20
+text = "WASD to move
+Tab to Pause"
+horizontal_alignment = 1
+
+[node name="Some Platforms are only visible in the light!" type="Label" parent="Controls"]
+offset_left = 446.0
+offset_top = 220.0
+offset_right = 755.0
+offset_bottom = 278.0
+theme_override_constants/line_spacing = 4
+theme_override_fonts/font = ExtResource("9_o0sr6")
+theme_override_font_sizes/font_size = 20
+text = "Some Platforms are only 
+wvisible in the light!"
+horizontal_alignment = 1
 
 [editable path="Platforms/PlatformBox"]
 [editable path="Platforms/PlatformBox2"]
