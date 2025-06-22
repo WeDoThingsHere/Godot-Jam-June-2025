@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="3_a2ux5"]
 [ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="5_jynpa"]
 [ext_resource type="PackedScene" uid="uid://da0vb48bj51jb" path="res://scenes/Prefabs/Goal.tscn" id="6_7u874"]
-[ext_resource type="PackedScene" path="res://scenes/true_platform.tscn" id="7_hkq2j"]
+[ext_resource type="PackedScene" uid="uid://cq310hw2aa0yd" path="res://scenes/true_platform.tscn" id="7_hkq2j"]
 [ext_resource type="PackedScene" uid="uid://bhfabwws43023" path="res://scenes/dust_spawner.tscn" id="8_a2ux5"]
-[ext_resource type="PackedScene" uid="uid://cn6mjaf1avpfd" path="res://scenes/Prefabs/Player.tscn" id="8_o0sr6"]
+[ext_resource type="PackedScene" uid="uid://nhxnwxvg7tii" path="res://scenes/Prefabs/Player.tscn" id="8_o0sr6"]
 [ext_resource type="FontFile" uid="uid://cy47fpiq1bxem" path="res://assets/Chunq.ttf" id="9_o0sr6"]
 
 [sub_resource type="Animation" id="Animation_o0sr6"]
@@ -164,12 +164,6 @@ offset_right = 3379.0
 offset_bottom = 1950.0
 color = Color(0.0705882, 0.0705882, 0.129412, 1)
 
-[node name="Player" parent="." instance=ExtResource("8_o0sr6")]
-position = Vector2(-521, 48)
-SQUISH_TIME = 0.0
-SQUISH = 0.0
-COYOTE_TIME = 0.0
-
 [node name="Controls" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -192,6 +186,7 @@ Tab to Pause"
 horizontal_alignment = 1
 
 [node name="Some Platforms are only visible in the light!" type="Label" parent="Controls"]
+layout_mode = 0
 offset_left = 446.0
 offset_top = 220.0
 offset_right = 755.0
@@ -202,6 +197,9 @@ theme_override_font_sizes/font_size = 20
 text = "Some Platforms are only 
 wvisible in the light!"
 horizontal_alignment = 1
+
+[node name="Player" parent="." instance=ExtResource("8_o0sr6")]
+position = Vector2(-525, 39)
 
 [editable path="Platforms/PlatformBox"]
 [editable path="Platforms/PlatformBox2"]

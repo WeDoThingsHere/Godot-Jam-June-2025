@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="3_vxj43"]
 [ext_resource type="PackedScene" uid="uid://da0vb48bj51jb" path="res://scenes/Prefabs/Goal.tscn" id="4_dc6it"]
 [ext_resource type="PackedScene" uid="uid://bhfabwws43023" path="res://scenes/dust_spawner.tscn" id="5_i6mds"]
-[ext_resource type="PackedScene" path="res://scenes/true_platform.tscn" id="6_fe2my"]
+[ext_resource type="PackedScene" uid="uid://cq310hw2aa0yd" path="res://scenes/true_platform.tscn" id="6_fe2my"]
 [ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="7_f1y6j"]
-[ext_resource type="PackedScene" uid="uid://cn6mjaf1avpfd" path="res://scenes/Prefabs/Player.tscn" id="8_7ntk6"]
+[ext_resource type="PackedScene" uid="uid://nhxnwxvg7tii" path="res://scenes/Prefabs/Player.tscn" id="8_7ntk6"]
 
 [sub_resource type="Animation" id="Animation_qwptg"]
 length = 0.001
@@ -275,10 +275,7 @@ offset_bottom = 1950.0
 color = Color(0.0705882, 0.0705882, 0.129412, 1)
 
 [node name="Player" parent="." instance=ExtResource("8_7ntk6")]
-position = Vector2(-516, 44)
-SQUISH_TIME = 0.0
-SQUISH = 0.0
-COYOTE_TIME = 0.0
+position = Vector2(-537, 45)
 
 [editable path="Platforms/PlatformBox"]
 [editable path="Platforms/PlatformBox2"]

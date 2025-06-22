@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="3_i42bq"]
 [ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="5_1md53"]
 [ext_resource type="PackedScene" uid="uid://da0vb48bj51jb" path="res://scenes/Prefabs/Goal.tscn" id="6_pdqs3"]
-[ext_resource type="PackedScene" uid="uid://cn6mjaf1avpfd" path="res://scenes/Prefabs/Player.tscn" id="7_4ntff"]
+[ext_resource type="PackedScene" uid="uid://nhxnwxvg7tii" path="res://scenes/Prefabs/Player.tscn" id="7_4ntff"]
 [ext_resource type="PackedScene" uid="uid://cq310hw2aa0yd" path="res://scenes/true_platform.tscn" id="7_w6yvq"]
 [ext_resource type="PackedScene" uid="uid://bhfabwws43023" path="res://scenes/dust_spawner.tscn" id="8_4ntff"]
 
@@ -289,9 +289,6 @@ position = Vector2(0, 323)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds/Killzone"]
 shape = SubResource("WorldBoundaryShape2D_4ntff")
 
-[node name="Player" parent="." instance=ExtResource("7_4ntff")]
-position = Vector2(-525, 18)
-
 [node name="DustSpawner" parent="." instance=ExtResource("8_4ntff")]
 position = Vector2(2, -11)
 
@@ -302,6 +299,9 @@ offset_top = -2255.0
 offset_right = 3379.0
 offset_bottom = 1950.0
 color = Color(0.0705882, 0.0705882, 0.129412, 1)
+
+[node name="Player" parent="." instance=ExtResource("7_4ntff")]
+position = Vector2(-535, 17)
 
 [editable path="True Platforms/TruePlatform"]
 [editable path="True Platforms/TruePlatform2"]
