@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="5_ixxyy"]
 [ext_resource type="PackedScene" uid="uid://da0vb48bj51jb" path="res://scenes/Prefabs/Goal.tscn" id="6_1dhsq"]
 [ext_resource type="PackedScene" uid="uid://bhfabwws43023" path="res://scenes/dust_spawner.tscn" id="6_tb5yy"]
-[ext_resource type="PackedScene" uid="uid://cq310hw2aa0yd" path="res://scenes/true_platform.tscn" id="7_jglaw"]
+[ext_resource type="PackedScene" path="res://scenes/true_platform.tscn" id="7_jglaw"]
 
 [sub_resource type="Animation" id="Animation_o4dxq"]
 length = 0.001
@@ -399,6 +399,9 @@ color = Color(0.0705882, 0.0705882, 0.129412, 1)
 
 [node name="Player" parent="." instance=ExtResource("4_2y5ga")]
 position = Vector2(-544, 48)
+SQUISH_TIME = 0.0
+SQUISH = 0.0
+COYOTE_TIME = 0.0
 
 [editable path="Platforms/Elevator4/Elevator3/PlatformBox"]
 [editable path="Platforms/Elevator4/Elevator3/PlatformBox2"]

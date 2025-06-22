@@ -1,6 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://rweim3qej8eq"]
+[gd_scene load_steps=6 format=3 uid="uid://rweim3qej8eq"]
 
 [ext_resource type="Script" uid="uid://c4wvvno1xgq3x" path="res://pause_menu.gd" id="1_hdmo1"]
+[ext_resource type="FontFile" uid="uid://cy47fpiq1bxem" path="res://assets/Chunq.ttf" id="2_u7v1h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7v1h"]
+bg_color = Color(0.521569, 0.6, 0.764706, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3gov"]
+bg_color = Color(0.521569, 0.6, 0.764706, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b15ay"]
+bg_color = Color(0.521569, 0.6, 0.764706, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
 
 [node name="Pause Menu" type="Control"]
 layout_mode = 3
@@ -28,15 +53,26 @@ theme_override_constants/separation = 25
 [node name="Resume" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_u7v1h")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_u7v1h")
 text = "Resume"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_u7v1h")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_r3gov")
 text = "Quit
 "
 
 [node name="Start Menu" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_u7v1h")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_b15ay")
 text = "Start Menu"
 
 [connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
