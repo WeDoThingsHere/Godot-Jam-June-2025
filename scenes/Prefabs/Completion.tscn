@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwkp8wmsw5av1"]
+
+[ext_resource type="Script" uid="uid://c3iostsm5d3ec" path="res://scenes/Prefabs/completion.gd" id="1_y4onu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8lvw"]
+bg_color = Color(0.854902, 0.713726, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_05fas"]
+line_spacing = 5.0
+font_size = 50
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Completion" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y4onu")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n8lvw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -118.5
+offset_top = -198.0
+offset_right = 118.5
+offset_bottom = -156.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Quit" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Quit
+"
+
+[node name="Start Menu" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Start Menu"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.0
+offset_top = -71.5
+offset_right = 191.0
+offset_bottom = 71.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "You Completed 
+The Level!"
+label_settings = SubResource("LabelSettings_05fas")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="HBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="HBoxContainer/Start Menu" to="." method="_on_start_menu_pressed"]

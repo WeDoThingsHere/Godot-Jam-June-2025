@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://brik828nmalxf"]
 
-[ext_resource type="PackedScene" uid="uid://nhxnwxvg7tii" path="res://scenes/Player.tscn" id="1_ty0f3"]
+[ext_resource type="PackedScene" uid="uid://nhxnwxvg7tii" path="res://scenes/Prefabs/Player.tscn" id="1_ty0f3"]
 [ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="2_ufmrn"]
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="3_mx8qg"]
 [ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="4_y8fji"]
