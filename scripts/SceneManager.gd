@@ -20,6 +20,7 @@ func _ready() -> void:
 
 func changeCompletionStatus(Level: String) -> void:
 	if completation.has(Level):
+		print(Level, " is now unlocked")
 		completation[Level] = true
 	else:
 		print(Level, "does not exist.")
@@ -27,7 +28,7 @@ func changeCompletionStatus(Level: String) -> void:
 		
 func checkForCompletion(Level: String) -> bool:
 	if completation.has(Level):
-		print(Level, "exists!")
+		print(Level, "is unlocked!")
 		return completation[Level]
 	else:
 		print(Level, "does not exist.")

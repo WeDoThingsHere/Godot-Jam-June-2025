@@ -220,15 +220,7 @@ polygon = PackedVector2Array(-176, -72, -176, 20, -93, 20, -93, -72)
 uv = PackedVector2Array(-176, -72, -176, -8, -104, -8, -104, -72)
 
 [node name="Lvl2" type="Node2D" parent="Platforms"]
-visible = false
 position = Vector2(1, -14)
-
-[node name="PlatformBox" parent="Platforms/Lvl2" instance=ExtResource("2_6lfbd")]
-position = Vector2(469, 256)
-
-[node name="Bounds" parent="Platforms/Lvl2/PlatformBox/PlatformArea" index="0"]
-polygon = PackedVector2Array(-176, -72, -176, 20, -93, 20, -93, -72)
-uv = PackedVector2Array(-176, -72, -176, -8, -104, -8, -104, -72)
 
 [node name="Light1" parent="Platforms/Lvl2" instance=ExtResource("4_wlrfa")]
 visible = false
@@ -246,16 +238,15 @@ libraries = {
 }
 autoplay = "new_animation"
 
-[node name="Lvl3" type="Node2D" parent="Platforms"]
-visible = false
-position = Vector2(184, -14)
-
-[node name="PlatformBox" parent="Platforms/Lvl3" instance=ExtResource("2_6lfbd")]
+[node name="PlatformBox" parent="Platforms/Lvl2" instance=ExtResource("2_6lfbd")]
 position = Vector2(469, 256)
 
-[node name="Bounds" parent="Platforms/Lvl3/PlatformBox/PlatformArea" index="0"]
+[node name="Bounds" parent="Platforms/Lvl2/PlatformBox/PlatformArea" index="0"]
 polygon = PackedVector2Array(-176, -72, -176, 20, -93, 20, -93, -72)
 uv = PackedVector2Array(-176, -72, -176, -8, -104, -8, -104, -72)
+
+[node name="Lvl3" type="Node2D" parent="Platforms"]
+position = Vector2(184, -14)
 
 [node name="Light1" parent="Platforms/Lvl3" instance=ExtResource("4_wlrfa")]
 visible = false
@@ -272,11 +263,18 @@ libraries = {
 }
 autoplay = "new_animation"
 
+[node name="PlatformBox" parent="Platforms/Lvl3" instance=ExtResource("2_6lfbd")]
+position = Vector2(469, 256)
+
+[node name="Bounds" parent="Platforms/Lvl3/PlatformBox/PlatformArea" index="0"]
+polygon = PackedVector2Array(-176, -72, -176, 20, -93, 20, -93, -72)
+uv = PackedVector2Array(-176, -72, -176, -8, -104, -8, -104, -72)
+
 [node name="Lvl4" type="Node2D" parent="Platforms"]
-visible = false
 position = Vector2(366, -14)
 
 [node name="Light1" parent="Platforms/Lvl4" instance=ExtResource("4_wlrfa")]
+visible = false
 rotation = -0.23911
 
 [node name="Polygon2D" parent="Platforms/Lvl4/Light1/LitArea" index="1"]
@@ -298,15 +296,7 @@ polygon = PackedVector2Array(-176, -72, -176, 20, -93, 20, -93, -72)
 uv = PackedVector2Array(-176, -72, -176, -8, -104, -8, -104, -72)
 
 [node name="Lvl5" type="Node2D" parent="Platforms"]
-visible = false
 position = Vector2(550, -14)
-
-[node name="PlatformBox" parent="Platforms/Lvl5" instance=ExtResource("2_6lfbd")]
-position = Vector2(469, 256)
-
-[node name="Bounds" parent="Platforms/Lvl5/PlatformBox/PlatformArea" index="0"]
-polygon = PackedVector2Array(-176, -72, -176, 20, -93, 20, -93, -72)
-uv = PackedVector2Array(-176, -72, -176, -8, -104, -8, -104, -72)
 
 [node name="Light1" parent="Platforms/Lvl5" instance=ExtResource("4_wlrfa")]
 visible = false
@@ -323,6 +313,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_5e4i3")
 }
 autoplay = "new_animation"
+
+[node name="PlatformBox" parent="Platforms/Lvl5" instance=ExtResource("2_6lfbd")]
+position = Vector2(469, 256)
+
+[node name="Bounds" parent="Platforms/Lvl5/PlatformBox/PlatformArea" index="0"]
+polygon = PackedVector2Array(-176, -72, -176, 20, -93, 20, -93, -72)
+uv = PackedVector2Array(-176, -72, -176, -8, -104, -8, -104, -72)
 
 [node name="HBOX Level Selection Container" type="HBoxContainer" parent="."]
 visible = false
@@ -426,15 +423,15 @@ vertical_alignment = 1
 [editable path="Platforms/Lvl1/Light1"]
 [editable path="Platforms/Lvl1/Light1/LitArea"]
 [editable path="Platforms/Lvl1/PlatformBox"]
-[editable path="Platforms/Lvl2/PlatformBox"]
 [editable path="Platforms/Lvl2/Light1"]
 [editable path="Platforms/Lvl2/Light1/LitArea"]
-[editable path="Platforms/Lvl3/PlatformBox"]
+[editable path="Platforms/Lvl2/PlatformBox"]
 [editable path="Platforms/Lvl3/Light1"]
 [editable path="Platforms/Lvl3/Light1/LitArea"]
+[editable path="Platforms/Lvl3/PlatformBox"]
 [editable path="Platforms/Lvl4/Light1"]
 [editable path="Platforms/Lvl4/Light1/LitArea"]
 [editable path="Platforms/Lvl4/PlatformBox"]
-[editable path="Platforms/Lvl5/PlatformBox"]
 [editable path="Platforms/Lvl5/Light1"]
 [editable path="Platforms/Lvl5/Light1/LitArea"]
+[editable path="Platforms/Lvl5/PlatformBox"]

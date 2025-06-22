@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="1_clysx"]
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="2_tthgi"]
-[ext_resource type="PackedScene" uid="uid://nhxnwxvg7tii" path="res://scenes/Prefabs/Player.tscn" id="3_6jvd8"]
+[ext_resource type="PackedScene" uid="uid://cn6mjaf1avpfd" path="res://scenes/Prefabs/Player.tscn" id="3_6jvd8"]
 [ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="4_fsjfv"]
 
 [sub_resource type="Animation" id="Animation_fsjfv"]

@@ -7,7 +7,7 @@ enum Levels{
 	}
 # Called when the node enters the scene tree for the first time.
 @export_enum("Level_One", "Level_Two", "Level_Three", "Level_Four", "Level_Five")
-var Level_To_Unlock: String = "LevelTwo" #level to unlock
+var Level_To_Unlock: String #level to unlock
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

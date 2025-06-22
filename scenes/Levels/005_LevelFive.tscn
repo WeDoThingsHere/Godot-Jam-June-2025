@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="3_vxj43"]
 [ext_resource type="PackedScene" uid="uid://da0vb48bj51jb" path="res://scenes/Prefabs/Goal.tscn" id="4_dc6it"]
 [ext_resource type="PackedScene" uid="uid://bhfabwws43023" path="res://scenes/dust_spawner.tscn" id="5_i6mds"]
-[ext_resource type="PackedScene" path="res://scenes/true_platform.tscn" id="6_fe2my"]
+[ext_resource type="PackedScene" uid="uid://cq310hw2aa0yd" path="res://scenes/true_platform.tscn" id="6_fe2my"]
 [ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="7_f1y6j"]
-[ext_resource type="PackedScene" uid="uid://cn6mjaf1avpfd" path="res://scenes/Player.tscn" id="8_7ntk6"]
+[ext_resource type="PackedScene" uid="uid://cn6mjaf1avpfd" path="res://scenes/Prefabs/Player.tscn" id="8_7ntk6"]
 
 [sub_resource type="Animation" id="Animation_qwptg"]
 length = 0.001

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bvfcsifra33ja"
-path="res://.godot/imported/UI_GenericSound.wav-9a893fa58c26202890e3cda9d82cae89.sample"
+path="res://.godot/imported/UI_GenericSound.wav-a8bae11f7067641b9133d8ee1ec5ef1f.sample"
 
 [deps]
 
-source_file="res://assets/UI_GenericSound.wav"
-dest_files=["res://.godot/imported/UI_GenericSound.wav-9a893fa58c26202890e3cda9d82cae89.sample"]
+source_file="res://assets/sounds/UI_GenericSound.wav"
+dest_files=["res://.godot/imported/UI_GenericSound.wav-a8bae11f7067641b9133d8ee1ec5ef1f.sample"]
 
 [params]
 

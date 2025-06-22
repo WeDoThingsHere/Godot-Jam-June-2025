@@ -5,25 +5,26 @@
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="3_a2ux5"]
 [ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="5_jynpa"]
 [ext_resource type="PackedScene" uid="uid://da0vb48bj51jb" path="res://scenes/Prefabs/Goal.tscn" id="6_7u874"]
-[ext_resource type="PackedScene" path="res://scenes/true_platform.tscn" id="7_hkq2j"]
+[ext_resource type="PackedScene" uid="uid://cq310hw2aa0yd" path="res://scenes/true_platform.tscn" id="7_hkq2j"]
 [ext_resource type="PackedScene" uid="uid://bhfabwws43023" path="res://scenes/dust_spawner.tscn" id="8_a2ux5"]
-[ext_resource type="PackedScene" uid="uid://cn6mjaf1avpfd" path="res://scenes/Player.tscn" id="8_o0sr6"]
+[ext_resource type="PackedScene" uid="uid://cn6mjaf1avpfd" path="res://scenes/Prefabs/Player.tscn" id="8_o0sr6"]
 
-[sub_resource type="Animation" id="Animation_y8fji"]
+[sub_resource type="Animation" id="Animation_o0sr6"]
 length = 0.001
-tracks/0/type = "bezier"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-0.305433, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.26529]
 }
 
-[sub_resource type="Animation" id="Animation_hkq2j"]
+[sub_resource type="Animation" id="Animation_a2ux5"]
 resource_name = "swing"
 length = 6.0
 loop_mode = 1
@@ -37,13 +38,13 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3, 6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.18675, -0.0925025, 0.18675]
+"values": [-0.26529, 0.280998, -0.26529]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_nf86m"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jynpa"]
 _data = {
-&"RESET": SubResource("Animation_y8fji"),
-&"swing": SubResource("Animation_hkq2j")
+&"RESET": SubResource("Animation_o0sr6"),
+&"swing": SubResource("Animation_a2ux5")
 }
 
 [sub_resource type="Gradient" id="Gradient_a2ux5"]
@@ -87,7 +88,7 @@ position = Vector2(-67, -263)
 
 [node name="TiltingLight" parent="Lights" instance=ExtResource("3_a2ux5")]
 position = Vector2(71, -785)
-rotation = -0.305433
+rotation = -0.26529
 
 [node name="Polygon2D" parent="Lights/TiltingLight/LitArea" index="1"]
 polygon = PackedVector2Array(-14.5551, -3.9146, 7.59131, -3.99697, 72.6787, 1698.34, -150.191, 1698.34)
@@ -95,7 +96,7 @@ uv = PackedVector2Array(-12.2161, -3.31395, 7.59131, -3.99697, 72.6787, 1698.34,
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/TiltingLight"]
 libraries = {
-&"": SubResource("AnimationLibrary_nf86m")
+&"": SubResource("AnimationLibrary_jynpa")
 }
 autoplay = "swing"
 

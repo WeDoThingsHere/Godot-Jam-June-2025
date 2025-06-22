@@ -1,20 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://nhxnwxvg7tii"]
+[gd_scene load_steps=6 format=3 uid="uid://cn6mjaf1avpfd"]
 
 [ext_resource type="Script" uid="uid://cpkbnivocb4a" path="res://scripts/PlayerController.gd" id="1_p0vlq"]
 [ext_resource type="Texture2D" uid="uid://477jo1hmljyi" path="res://assets/sprites/lil guy 3.png" id="2_v6fml"]
+[ext_resource type="AudioStream" uid="uid://bww0br8ptegom" path="res://assets/sounds/JumpSound.wav" id="3_0i2vv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0vlq"]
 size = Vector2(13, 13)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_v6fml"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_p0vlq")
 SPEED = 270.0
 JUMP_VELOCITY = -600.0
 GRAV_MULT = 2.0
+SQUISH_TIME = 0.15
+SQUISH = 0.4
+COYOTE_TIME = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_p0vlq")
@@ -55,3 +59,8 @@ scale_amount_max = 3.5
 modulate = Color(0.99435, 0.123384, 0.867163, 1)
 scale = Vector2(0.11, 0.11)
 texture = ExtResource("2_v6fml")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0i2vv")
+volume_db = -19.03
+pitch_scale = 0.88

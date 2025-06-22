@@ -9,13 +9,15 @@ enum {
 @export_enum("LevelOne", "LevelTwo", "LevelThree")
 var LevelToLoad: String = "LevelOne"
 @onready var LevelButtons = $"HBOX Level Selection Container"
+@onready var play_button: Button = $"V Container/Play Button"
 
 #ERic's lights and platforms
 @onready var platforms = $Platforms
-@onready var Light2 = $Platforms/Lvl2/Light1
-@onready var Light3 = $Platforms/Lvl3/Light1
-@onready var Light4 = $Platforms/Lvl4/Light1
-@onready var Light5 = $Platforms/Lvl5/Light1
+@onready var Light2: Node2D = $Platforms/Lvl2/Light1
+@onready var Light3: Node2D = $Platforms/Lvl3/Light1
+@onready var Light4: Node2D = $Platforms/Lvl4/Light1
+@onready var Light5: Node2D = $Platforms/Lvl5/Light1
+
 ##Lights to set visible/invisible
 
 func showLevels() -> void:
@@ -36,28 +38,30 @@ func _process(delta: float) -> void:
 	#SceneManager.changeSceneTo(2)
 #
 func setvisibility() -> void:
-	if LevelButtons.visible:
-		LevelButtons.visible = false
-		platforms.visible = false
-		Light2.visible = false
-		Light3.visible = false
-		Light4.visible = false
-		Light5.visible = false
-	else:
-		LevelButtons.visible = true
-		platforms.visible = true
-		if (SceneManager.checkForCompletion("Level_Two")):
-			Light2.visible = true
-			if(SceneManager.checkForCompletion("Level_Three")):
-				Light3.visible = true
-				if(SceneManager.checkForCompletion("Level_Four")):
-					Light4.visible = true
-					if(SceneManager.checkForCompletion("Level_Five")):
-						Light5.visible = true
+	#if LevelButtons.visible:
+		#LevelButtons.visible = false
+		#platforms.visible = false
+		#Light2.visible = false
+		#Light3.visible = false
+		#Light4.visible = false
+		#Light5.visible = false
+	#else:
+	LevelButtons.visible = true
+	platforms.visible = true
+	if (SceneManager.checkForCompletion("Level_Two")):
+		print("Hi Level_Two is considered unlocked here you go!")
+		Light2.visible = true
+		if(SceneManager.checkForCompletion("Level_Three")):
+			Light3.visible = true
+			if(SceneManager.checkForCompletion("Level_Four")):
+				Light4.visible = true
+				if(SceneManager.checkForCompletion("Level_Five")):
+					Light5.visible = true
 
 
 func PlayButton() -> void:
 	AudioPlayer.play_UI()
+	play_button.visible = false
 	setvisibility()
 	
 

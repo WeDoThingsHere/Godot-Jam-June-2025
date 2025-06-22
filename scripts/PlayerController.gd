@@ -13,14 +13,16 @@ extends CharacterBody2D
 @onready var coyote_timer: Timer = $CoyoteTimer
 @onready var leftward_running_particles: CPUParticles2D = $LeftwardRunningParticles
 @onready var rightward_running_particles: CPUParticles2D = $RightwardRunningParticles
+@onready var jump_sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-
+var original_jump_pitch: float
 var jumping: bool = false
 var original_scale: Vector2
 var in_coyote_time: bool = false
 
 func _ready() -> void:
 	original_scale = sprite.scale
+	original_jump_pitch = jump_sound.pitch_scale
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -43,6 +45,8 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor() or !coyote_timer.is_stopped():
+			jump_sound.pitch_scale = original_jump_pitch + randf_range(-0.2, 0.3)
+			jump_sound.play()
 			velocity.y = JUMP_VELOCITY
 			var squished = Vector2(original_scale.x * (1 - SQUISH), original_scale.y * (1 + SQUISH))
 			sprite.scale = squished

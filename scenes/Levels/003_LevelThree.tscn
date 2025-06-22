@@ -3,49 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://dunadgt76ux7n" path="res://scenes/Prefabs/EveryGameScene.tscn" id="1_mvyed"]
 [ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="2_r1e1t"]
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="3_115sl"]
-[ext_resource type="PackedScene" uid="uid://nhxnwxvg7tii" path="res://scenes/Prefabs/Player.tscn" id="4_2y5ga"]
+[ext_resource type="PackedScene" uid="uid://cn6mjaf1avpfd" path="res://scenes/Prefabs/Player.tscn" id="4_2y5ga"]
 [ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="5_ixxyy"]
 [ext_resource type="PackedScene" uid="uid://da0vb48bj51jb" path="res://scenes/Prefabs/Goal.tscn" id="6_1dhsq"]
 [ext_resource type="PackedScene" uid="uid://bhfabwws43023" path="res://scenes/dust_spawner.tscn" id="6_tb5yy"]
-[ext_resource type="PackedScene" path="res://scenes/true_platform.tscn" id="7_jglaw"]
-
-[sub_resource type="Animation" id="Animation_jglaw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_tb5yy"]
-resource_name = "elevator"
-length = 10.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 10),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -600), Vector2(0, -900)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_53cjc"]
-_data = {
-&"RESET": SubResource("Animation_jglaw"),
-&"elevator": SubResource("Animation_tb5yy")
-}
+[ext_resource type="PackedScene" uid="uid://cq310hw2aa0yd" path="res://scenes/true_platform.tscn" id="7_jglaw"]
 
 [sub_resource type="Animation" id="Animation_o4dxq"]
 length = 0.001
@@ -103,6 +65,44 @@ _data = {
 &"elevator 3": SubResource("Animation_sd7vf")
 }
 
+[sub_resource type="Animation" id="Animation_jglaw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tb5yy"]
+resource_name = "elevator"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -600), Vector2(0, -900)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_53cjc"]
+_data = {
+&"RESET": SubResource("Animation_jglaw"),
+&"elevator": SubResource("Animation_tb5yy")
+}
+
 [sub_resource type="Animation" id="Animation_y8fji"]
 length = 0.001
 tracks/0/type = "value"
@@ -158,154 +158,163 @@ normal = Vector2(0.999884, -0.0152654)
 [node name="Platforms" type="Node2D" parent="."]
 position = Vector2(0, 44.715)
 
-[node name="Elevator1" type="Node2D" parent="Platforms"]
+[node name="Elevator4" type="Node2D" parent="Platforms"]
+position = Vector2(-5, 0)
 
-[node name="PlatformBox" parent="Platforms/Elevator1" instance=ExtResource("2_r1e1t")]
-position = Vector2(-31, 309.285)
-
-[node name="PlatformArea" parent="Platforms/Elevator1/PlatformBox" index="0"]
-position = Vector2(59, 57)
-
-[node name="Bounds" parent="Platforms/Elevator1/PlatformBox/PlatformArea" index="0"]
-polygon = PackedVector2Array(-272, -88, -136, -88, -136, -48, -272, -48)
-uv = PackedVector2Array(-272, -88, -32, -88, -32, -24, -272, -24)
-
-[node name="PlatformBox2" parent="Platforms/Elevator1" instance=ExtResource("2_r1e1t")]
-position = Vector2(-31, 609.285)
-
-[node name="PlatformArea" parent="Platforms/Elevator1/PlatformBox2" index="0"]
-position = Vector2(59, 57)
-
-[node name="Bounds" parent="Platforms/Elevator1/PlatformBox2/PlatformArea" index="0"]
-polygon = PackedVector2Array(-272, -88, -136, -88, -136, -48, -272, -48)
-uv = PackedVector2Array(-272, -88, -32, -88, -32, -24, -272, -24)
-
-[node name="PlatformBox3" parent="Platforms/Elevator1" instance=ExtResource("2_r1e1t")]
-position = Vector2(-31, 909.285)
-
-[node name="PlatformArea" parent="Platforms/Elevator1/PlatformBox3" index="0"]
-position = Vector2(59, 57)
-
-[node name="Bounds" parent="Platforms/Elevator1/PlatformBox3/PlatformArea" index="0"]
-polygon = PackedVector2Array(-272, -88, -136, -88, -136, -48, -272, -48)
-uv = PackedVector2Array(-272, -88, -32, -88, -32, -24, -272, -24)
-
-[node name="PlatformBox4" parent="Platforms/Elevator1" instance=ExtResource("2_r1e1t")]
-position = Vector2(-31, 1210)
-
-[node name="PlatformArea" parent="Platforms/Elevator1/PlatformBox4" index="0"]
-position = Vector2(59, 57)
-
-[node name="Bounds" parent="Platforms/Elevator1/PlatformBox4/PlatformArea" index="0"]
-polygon = PackedVector2Array(-272, -88, -136, -88, -136, -48, -272, -48)
-uv = PackedVector2Array(-272, -88, -32, -88, -32, -24, -272, -24)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Elevator1"]
-libraries = {
-&"": SubResource("AnimationLibrary_53cjc")
-}
-autoplay = "elevator"
-speed_scale = 2.0
-
-[node name="Elevator2" type="Node2D" parent="Platforms"]
+[node name="Elevator3" type="Node2D" parent="Platforms/Elevator4"]
 position = Vector2(0, -989.715)
 
-[node name="PlatformBox" parent="Platforms/Elevator2" instance=ExtResource("2_r1e1t")]
+[node name="PlatformBox" parent="Platforms/Elevator4/Elevator3" instance=ExtResource("2_r1e1t")]
 position = Vector2(-31, 309.285)
 
-[node name="PlatformArea" parent="Platforms/Elevator2/PlatformBox" index="0"]
+[node name="PlatformArea" parent="Platforms/Elevator4/Elevator3/PlatformBox" index="0"]
 position = Vector2(59, 57)
 
-[node name="Bounds" parent="Platforms/Elevator2/PlatformBox/PlatformArea" index="0"]
+[node name="Bounds" parent="Platforms/Elevator4/Elevator3/PlatformBox/PlatformArea" index="0"]
 polygon = PackedVector2Array(-272, -88, -136, -88, -136, -48, -272, -48)
 uv = PackedVector2Array(-272, -88, -32, -88, -32, -24, -272, -24)
 
-[node name="PlatformBox2" parent="Platforms/Elevator2" instance=ExtResource("2_r1e1t")]
+[node name="PlatformBox2" parent="Platforms/Elevator4/Elevator3" instance=ExtResource("2_r1e1t")]
 position = Vector2(-31, 609.285)
 
-[node name="PlatformArea" parent="Platforms/Elevator2/PlatformBox2" index="0"]
+[node name="PlatformArea" parent="Platforms/Elevator4/Elevator3/PlatformBox2" index="0"]
 position = Vector2(59, 57)
 
-[node name="Bounds" parent="Platforms/Elevator2/PlatformBox2/PlatformArea" index="0"]
+[node name="Bounds" parent="Platforms/Elevator4/Elevator3/PlatformBox2/PlatformArea" index="0"]
 polygon = PackedVector2Array(-272, -88, -136, -88, -136, -48, -272, -48)
 uv = PackedVector2Array(-272, -88, -32, -88, -32, -24, -272, -24)
 
-[node name="PlatformBox3" parent="Platforms/Elevator2" instance=ExtResource("2_r1e1t")]
+[node name="PlatformBox3" parent="Platforms/Elevator4/Elevator3" instance=ExtResource("2_r1e1t")]
 position = Vector2(-31, 909.285)
 
-[node name="PlatformArea" parent="Platforms/Elevator2/PlatformBox3" index="0"]
+[node name="PlatformArea" parent="Platforms/Elevator4/Elevator3/PlatformBox3" index="0"]
 position = Vector2(59, 57)
 
-[node name="Bounds" parent="Platforms/Elevator2/PlatformBox3/PlatformArea" index="0"]
+[node name="Bounds" parent="Platforms/Elevator4/Elevator3/PlatformBox3/PlatformArea" index="0"]
 polygon = PackedVector2Array(-272, -88, -136, -88, -136, -48, -272, -48)
 uv = PackedVector2Array(-272, -88, -32, -88, -32, -24, -272, -24)
 
-[node name="PlatformBox4" parent="Platforms/Elevator2" instance=ExtResource("2_r1e1t")]
+[node name="PlatformBox4" parent="Platforms/Elevator4/Elevator3" instance=ExtResource("2_r1e1t")]
 position = Vector2(-31, 1210)
 
-[node name="PlatformArea" parent="Platforms/Elevator2/PlatformBox4" index="0"]
+[node name="PlatformArea" parent="Platforms/Elevator4/Elevator3/PlatformBox4" index="0"]
 position = Vector2(59, 57)
 
-[node name="Bounds" parent="Platforms/Elevator2/PlatformBox4/PlatformArea" index="0"]
+[node name="Bounds" parent="Platforms/Elevator4/Elevator3/PlatformBox4/PlatformArea" index="0"]
 polygon = PackedVector2Array(-272, -88, -136, -88, -136, -48, -272, -48)
 uv = PackedVector2Array(-272, -88, -32, -88, -32, -24, -272, -24)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Elevator2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Elevator4/Elevator3"]
+libraries = {
+&"": SubResource("AnimationLibrary_4rrj5")
+}
+autoplay = "elevator 3"
+speed_scale = 1.5
+
+[node name="Elevator" type="Node2D" parent="Platforms"]
+position = Vector2(-204, 0)
+
+[node name="Elevator2" type="Node2D" parent="Platforms/Elevator"]
+position = Vector2(0, -989.715)
+
+[node name="PlatformBox" parent="Platforms/Elevator/Elevator2" instance=ExtResource("2_r1e1t")]
+position = Vector2(-31, 309.285)
+
+[node name="PlatformArea" parent="Platforms/Elevator/Elevator2/PlatformBox" index="0"]
+position = Vector2(59, 57)
+
+[node name="Bounds" parent="Platforms/Elevator/Elevator2/PlatformBox/PlatformArea" index="0"]
+polygon = PackedVector2Array(-272, -88, -136, -88, -136, -48, -272, -48)
+uv = PackedVector2Array(-272, -88, -32, -88, -32, -24, -272, -24)
+
+[node name="PlatformBox2" parent="Platforms/Elevator/Elevator2" instance=ExtResource("2_r1e1t")]
+position = Vector2(-31, 609.285)
+
+[node name="PlatformArea" parent="Platforms/Elevator/Elevator2/PlatformBox2" index="0"]
+position = Vector2(59, 57)
+
+[node name="Bounds" parent="Platforms/Elevator/Elevator2/PlatformBox2/PlatformArea" index="0"]
+polygon = PackedVector2Array(-272, -88, -136, -88, -136, -48, -272, -48)
+uv = PackedVector2Array(-272, -88, -32, -88, -32, -24, -272, -24)
+
+[node name="PlatformBox3" parent="Platforms/Elevator/Elevator2" instance=ExtResource("2_r1e1t")]
+position = Vector2(-31, 909.285)
+
+[node name="PlatformArea" parent="Platforms/Elevator/Elevator2/PlatformBox3" index="0"]
+position = Vector2(59, 57)
+
+[node name="Bounds" parent="Platforms/Elevator/Elevator2/PlatformBox3/PlatformArea" index="0"]
+polygon = PackedVector2Array(-272, -88, -136, -88, -136, -48, -272, -48)
+uv = PackedVector2Array(-272, -88, -32, -88, -32, -24, -272, -24)
+
+[node name="PlatformBox4" parent="Platforms/Elevator/Elevator2" instance=ExtResource("2_r1e1t")]
+position = Vector2(-31, 1210)
+
+[node name="PlatformArea" parent="Platforms/Elevator/Elevator2/PlatformBox4" index="0"]
+position = Vector2(59, 57)
+
+[node name="Bounds" parent="Platforms/Elevator/Elevator2/PlatformBox4/PlatformArea" index="0"]
+polygon = PackedVector2Array(-272, -88, -136, -88, -136, -48, -272, -48)
+uv = PackedVector2Array(-272, -88, -32, -88, -32, -24, -272, -24)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Elevator/Elevator2"]
 libraries = {
 &"": SubResource("AnimationLibrary_4rrj5")
 }
 autoplay = "elevator 2"
 speed_scale = 2.0
 
-[node name="Elevator3" type="Node2D" parent="Platforms"]
-position = Vector2(0, -989.715)
+[node name="Elevator2" type="Node2D" parent="Platforms"]
+position = Vector2(193, 0)
 
-[node name="PlatformBox" parent="Platforms/Elevator3" instance=ExtResource("2_r1e1t")]
+[node name="Elevator1" type="Node2D" parent="Platforms/Elevator2"]
+
+[node name="PlatformBox" parent="Platforms/Elevator2/Elevator1" instance=ExtResource("2_r1e1t")]
 position = Vector2(-31, 309.285)
 
-[node name="PlatformArea" parent="Platforms/Elevator3/PlatformBox" index="0"]
+[node name="PlatformArea" parent="Platforms/Elevator2/Elevator1/PlatformBox" index="0"]
 position = Vector2(59, 57)
 
-[node name="Bounds" parent="Platforms/Elevator3/PlatformBox/PlatformArea" index="0"]
+[node name="Bounds" parent="Platforms/Elevator2/Elevator1/PlatformBox/PlatformArea" index="0"]
 polygon = PackedVector2Array(-272, -88, -136, -88, -136, -48, -272, -48)
 uv = PackedVector2Array(-272, -88, -32, -88, -32, -24, -272, -24)
 
-[node name="PlatformBox2" parent="Platforms/Elevator3" instance=ExtResource("2_r1e1t")]
+[node name="PlatformBox2" parent="Platforms/Elevator2/Elevator1" instance=ExtResource("2_r1e1t")]
 position = Vector2(-31, 609.285)
 
-[node name="PlatformArea" parent="Platforms/Elevator3/PlatformBox2" index="0"]
+[node name="PlatformArea" parent="Platforms/Elevator2/Elevator1/PlatformBox2" index="0"]
 position = Vector2(59, 57)
 
-[node name="Bounds" parent="Platforms/Elevator3/PlatformBox2/PlatformArea" index="0"]
+[node name="Bounds" parent="Platforms/Elevator2/Elevator1/PlatformBox2/PlatformArea" index="0"]
 polygon = PackedVector2Array(-272, -88, -136, -88, -136, -48, -272, -48)
 uv = PackedVector2Array(-272, -88, -32, -88, -32, -24, -272, -24)
 
-[node name="PlatformBox3" parent="Platforms/Elevator3" instance=ExtResource("2_r1e1t")]
+[node name="PlatformBox3" parent="Platforms/Elevator2/Elevator1" instance=ExtResource("2_r1e1t")]
 position = Vector2(-31, 909.285)
 
-[node name="PlatformArea" parent="Platforms/Elevator3/PlatformBox3" index="0"]
+[node name="PlatformArea" parent="Platforms/Elevator2/Elevator1/PlatformBox3" index="0"]
 position = Vector2(59, 57)
 
-[node name="Bounds" parent="Platforms/Elevator3/PlatformBox3/PlatformArea" index="0"]
+[node name="Bounds" parent="Platforms/Elevator2/Elevator1/PlatformBox3/PlatformArea" index="0"]
 polygon = PackedVector2Array(-272, -88, -136, -88, -136, -48, -272, -48)
 uv = PackedVector2Array(-272, -88, -32, -88, -32, -24, -272, -24)
 
-[node name="PlatformBox4" parent="Platforms/Elevator3" instance=ExtResource("2_r1e1t")]
+[node name="PlatformBox4" parent="Platforms/Elevator2/Elevator1" instance=ExtResource("2_r1e1t")]
 position = Vector2(-31, 1210)
 
-[node name="PlatformArea" parent="Platforms/Elevator3/PlatformBox4" index="0"]
+[node name="PlatformArea" parent="Platforms/Elevator2/Elevator1/PlatformBox4" index="0"]
 position = Vector2(59, 57)
 
-[node name="Bounds" parent="Platforms/Elevator3/PlatformBox4/PlatformArea" index="0"]
+[node name="Bounds" parent="Platforms/Elevator2/Elevator1/PlatformBox4/PlatformArea" index="0"]
 polygon = PackedVector2Array(-272, -88, -136, -88, -136, -48, -272, -48)
 uv = PackedVector2Array(-272, -88, -32, -88, -32, -24, -272, -24)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Elevator3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Elevator2/Elevator1"]
 libraries = {
-&"": SubResource("AnimationLibrary_4rrj5")
+&"": SubResource("AnimationLibrary_53cjc")
 }
-autoplay = "elevator 3"
-speed_scale = 1.5
+autoplay = "elevator"
+speed_scale = 2.0
 
 [node name="Lights" type="Node2D" parent="."]
 position = Vector2(-67, -263)
@@ -316,7 +325,7 @@ rotation = -0.0174533
 
 [node name="Polygon2D" parent="Lights/TiltingLight/LitArea" index="1"]
 modulate = Color(1, 1, 1, 0.745098)
-polygon = PackedVector2Array(-14.5551, -3.9146, 7.59131, -3.99697, 72.6787, 1698.34, -150.191, 1698.34)
+polygon = PackedVector2Array(-9.84428, -614.741, 28.1963, -614.882, 139.996, 2309.2, -242.824, 2309.2)
 uv = PackedVector2Array(-12.2161, -3.31395, 7.59131, -3.99697, 72.6787, 1698.34, -150.191, 1698.34)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/TiltingLight"]
@@ -324,9 +333,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_nf86m")
 }
 autoplay = "swing"
-
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("4_2y5ga")]
-position = Vector2(-510, 39)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 visible = false
@@ -391,18 +397,21 @@ offset_right = 3379.0
 offset_bottom = 1949.0
 color = Color(0.0705882, 0.0705882, 0.129412, 1)
 
-[editable path="Platforms/Elevator1/PlatformBox"]
-[editable path="Platforms/Elevator1/PlatformBox2"]
-[editable path="Platforms/Elevator1/PlatformBox3"]
-[editable path="Platforms/Elevator1/PlatformBox4"]
-[editable path="Platforms/Elevator2/PlatformBox"]
-[editable path="Platforms/Elevator2/PlatformBox2"]
-[editable path="Platforms/Elevator2/PlatformBox3"]
-[editable path="Platforms/Elevator2/PlatformBox4"]
-[editable path="Platforms/Elevator3/PlatformBox"]
-[editable path="Platforms/Elevator3/PlatformBox2"]
-[editable path="Platforms/Elevator3/PlatformBox3"]
-[editable path="Platforms/Elevator3/PlatformBox4"]
+[node name="Player" parent="." instance=ExtResource("4_2y5ga")]
+position = Vector2(-544, 48)
+
+[editable path="Platforms/Elevator4/Elevator3/PlatformBox"]
+[editable path="Platforms/Elevator4/Elevator3/PlatformBox2"]
+[editable path="Platforms/Elevator4/Elevator3/PlatformBox3"]
+[editable path="Platforms/Elevator4/Elevator3/PlatformBox4"]
+[editable path="Platforms/Elevator/Elevator2/PlatformBox"]
+[editable path="Platforms/Elevator/Elevator2/PlatformBox2"]
+[editable path="Platforms/Elevator/Elevator2/PlatformBox3"]
+[editable path="Platforms/Elevator/Elevator2/PlatformBox4"]
+[editable path="Platforms/Elevator2/Elevator1/PlatformBox"]
+[editable path="Platforms/Elevator2/Elevator1/PlatformBox2"]
+[editable path="Platforms/Elevator2/Elevator1/PlatformBox3"]
+[editable path="Platforms/Elevator2/Elevator1/PlatformBox4"]
 [editable path="Lights/TiltingLight"]
 [editable path="Lights/TiltingLight/LitArea"]
 [editable path="True Platforms/TruePlatform"]

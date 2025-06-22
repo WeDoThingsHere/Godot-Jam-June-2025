@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="3_i42bq"]
 [ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="5_1md53"]
 [ext_resource type="PackedScene" uid="uid://da0vb48bj51jb" path="res://scenes/Prefabs/Goal.tscn" id="6_pdqs3"]
-[ext_resource type="PackedScene" uid="uid://cn6mjaf1avpfd" path="res://scenes/Player.tscn" id="7_4ntff"]
+[ext_resource type="PackedScene" uid="uid://cn6mjaf1avpfd" path="res://scenes/Prefabs/Player.tscn" id="7_4ntff"]
 [ext_resource type="PackedScene" uid="uid://cq310hw2aa0yd" path="res://scenes/true_platform.tscn" id="7_w6yvq"]
 [ext_resource type="PackedScene" uid="uid://bhfabwws43023" path="res://scenes/dust_spawner.tscn" id="8_4ntff"]
 
@@ -47,6 +47,21 @@ _data = {
 &"move": SubResource("Animation_w6yvq")
 }
 
+[sub_resource type="Animation" id="Animation_iw22c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-157.555, 64.505)]
+}
+
 [sub_resource type="Animation" id="Animation_iamex"]
 resource_name = "move_around"
 length = 10.0
@@ -64,7 +79,13 @@ tracks/0/keys = {
 "values": [Vector2(-157.34, 60.95), Vector2(-150.775, 55.062), Vector2(-153.8, 54.692), Vector2(-152.21, 61.194), Vector2(-150.261, 63.871), Vector2(-153.868, 55.813), Vector2(-152.552, 56.788), Vector2(-154.371, 61.96), Vector2(-157.34, 60.95)]
 }
 
-[sub_resource type="Animation" id="Animation_iw22c"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xfixh"]
+_data = {
+&"RESET": SubResource("Animation_iw22c"),
+&"move_around": SubResource("Animation_iamex")
+}
+
+[sub_resource type="Animation" id="Animation_2ks6o"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -76,13 +97,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-157.555, 64.505)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xfixh"]
-_data = {
-&"RESET": SubResource("Animation_iw22c"),
-&"move_around": SubResource("Animation_iamex")
+"values": [Vector2(9, 11)]
 }
 
 [sub_resource type="Animation" id="Animation_7j7xi"]
@@ -100,21 +115,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(9, 11), Vector2(20, 13), Vector2(11, 10), Vector2(20, 11), Vector2(9, 11)]
-}
-
-[sub_resource type="Animation" id="Animation_2ks6o"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(9, 11)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tdl83"]
@@ -214,7 +214,6 @@ autoplay = "move"
 
 [node name="Light1" parent="Lights" instance=ExtResource("3_i42bq")]
 position = Vector2(-157.555, 64.505)
-scale = Vector2(1, 1)
 
 [node name="Polygon2D" parent="Lights/Light1/LitArea" index="1"]
 polygon = PackedVector2Array(-119.415, -19.776, -113.121, -33.8875, -104.32, -43.6321, -95.7222, -50.7944, -80.9036, -58.2037, -63.3904, -60.898, -49.2453, -60.2245, -29.038, -54.8359, -16.2491, -46.2667, -6.22541, -35.6861, -0.0998077, -25.1055, 5.13613, -7.20828, 5.73228, 7.46356, 4.35518, 24.4561, -2.23097, 36.2539, -10.1942, 47.8925, -21.8329, 56.4684, -37.7595, 62.594, -55.9919, 64.2389, -69.6126, 63.2065, -84.9266, 59.5312, -98.403, 52.793, -107.591, 44.8297, -114.942, 35.6413, -119.704, 20.645, -122.11, 10.5351, -122.11, -2.26291)
@@ -244,7 +243,6 @@ autoplay = "move"
 [node name="Light3" parent="Lights" instance=ExtResource("3_i42bq")]
 position = Vector2(170, 57)
 rotation = -2.94961
-scale = Vector2(1, 1)
 
 [node name="Polygon2D" parent="Lights/Light3/LitArea" index="1"]
 polygon = PackedVector2Array(-118.04, -19.2451, -111.89, -33.0323, -103.291, -42.5529, -94.8912, -49.5507, -80.4131, -56.7897, -63.3024, -59.4221, -49.4823, -58.7641, -29.7394, -53.4993, -17.2443, -45.127, -7.45102, -34.7896, -1.46617, -24.4521, 3.64944, -6.96613, 4.2319, 7.36856, 2.88645, 23.9706, -3.54836, 35.4973, -11.3286, 46.8685, -22.6998, 55.2473, -38.2604, 61.2321, -56.0739, 62.8392, -69.3816, 61.8306, -84.3437, 58.2397, -96.1956, 51.7844, -106.488, 43.8761, -113.669, 34.8988, -118.322, 20.2471, -120.673, 10.3695, -120.673, -2.13441)

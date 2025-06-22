@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://brik828nmalxf"]
 
-[ext_resource type="PackedScene" uid="uid://cn6mjaf1avpfd" path="res://scenes/Player.tscn" id="1_ty0f3"]
+[ext_resource type="PackedScene" uid="uid://cn6mjaf1avpfd" path="res://scenes/Prefabs/Player.tscn" id="1_ty0f3"]
 [ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="2_ufmrn"]
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="3_mx8qg"]
 [ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="4_y8fji"]
@@ -132,7 +132,6 @@ uv = PackedVector2Array(-104, 0, -96, -40, -16, -64, 64, -32, 88, 24, 64, 56, 32
 [node name="Light4" parent="Lights" instance=ExtResource("3_mx8qg")]
 position = Vector2(-58, -160)
 rotation = -0.305433
-scale = Vector2(1, 1)
 
 [node name="Polygon2D" parent="Lights/Light4/LitArea" index="1"]
 modulate = Color(1, 1, 1, 0.27451)
