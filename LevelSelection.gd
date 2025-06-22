@@ -20,5 +20,11 @@ func _process(delta: float) -> void:
 
 func OnPress() -> void:
 	print("ON BUTTON PRESS: Attempting to load " + LevelToLoad)
-	SceneManager.changeSceneTo(LevelToLoad)
+	#Checking if player meets the prereqs.
+	if(SceneManager.checkForCompletion(LevelToLoad)):
+		SceneManager.changeSceneTo(LevelToLoad)
+	else:
+		print("LevelSelection: The level" + LevelToLoad + "DNE or the player cannot access this level yet!")
+		
+	#SceneManager.changeSceneTo(LevelToLoad)
 	pass # Replace with function body.

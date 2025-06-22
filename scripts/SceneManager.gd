@@ -1,9 +1,9 @@
 extends Node
 
 var loadedLevel = {
-	"Level_One": preload("res://scenes/platform_test.tscn"),
-	"Level_Two": preload("res://scenes/platform_test.tscn"),
-	"Level_Three": preload("res://scenes/platform_test.tscn"),
+	"Level_One": preload("res://scenes/Levels/001_LevelOne.tscn"),
+	"Level_Two": preload("res://scenes/Levels/002_LevelTwo.tscn"),
+	"Level_Three": preload("res://scenes/Levels/003_LevelThree.tscn"),
 }
 var completation = {
 	"Level_One": true,
