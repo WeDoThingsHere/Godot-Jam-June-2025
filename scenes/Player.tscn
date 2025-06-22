@@ -8,7 +8,7 @@ size = Vector2(13, 13)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_v6fml"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_p0vlq")

@@ -24,9 +24,9 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0)
 }
 
-[sub_resource type="Animation" id="Animation_mx8qg"]
-resource_name = "swinging"
-length = 10.0
+[sub_resource type="Animation" id="Animation_hkq2j"]
+resource_name = "swing"
+length = 6.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -35,16 +35,16 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5.03, 10),
+"times": PackedFloat32Array(0, 3, 6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.673697, -0.757473, 0.673697]
+"values": [0.270526, -0.240855, 0.270526]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nf86m"]
 _data = {
 &"RESET": SubResource("Animation_y8fji"),
-&"swinging": SubResource("Animation_mx8qg")
+&"swing": SubResource("Animation_hkq2j")
 }
 
 [sub_resource type="Animation" id="Animation_fsjfv"]
@@ -133,6 +133,16 @@ modulate = Color(1, 1, 1, 0.745098)
 polygon = PackedVector2Array(-104, 0, -96, -40, -16, -64, 64, -32, 88, 24, 64, 56, 32, 64, -96, 56, -104, 32)
 uv = PackedVector2Array(-104, 0, -96, -40, -16, -64, 64, -32, 88, 24, 64, 56, 32, 64, -96, 56, -104, 32)
 
+[node name="Light4" parent="Lights" instance=ExtResource("3_mx8qg")]
+position = Vector2(-58, -160)
+rotation = -0.305433
+scale = Vector2(1, 1)
+
+[node name="Polygon2D" parent="Lights/Light4/LitArea" index="1"]
+modulate = Color(1, 1, 1, 0.27451)
+polygon = PackedVector2Array(-140.033, -27.8162, -131.542, -49.5224, -120.79, -60.5775, -108.067, -69.6652, -88.0742, -79.6616, -64.446, -83.2967, -45.3619, -82.388, -18.0988, -75.1178, 2.80305, -61.4862, 13.7082, -48.7634, 22.2247, -32.3402, 28.0078, -10.8602, 28.8121, 8.93458, 27.1593, 29.5957, 18.0684, 47.7776, 7.32456, 63.48, -8.37792, 75.0503, -29.8655, 83.3148, -54.4642, 85.534, -72.8408, 84.1412, -93.502, 79.1825, -111.684, 70.0916, -124.08, 59.3478, -133.998, 46.9511, -140.423, 26.7186, -143.669, 13.0786, -143.669, -4.18807)
+uv = PackedVector2Array(-128, -16, -120, -40, -112, -48, -104, -48, -88, -56, -64, -72, -56, -72, -40, -64, -32, -64, -24, -56, -16, -48, -16, -40, 0, -8, 0, 16, -8, 24, -16, 40, -24, 56, -40, 56, -48, 56, -64, 56, -72, 56, -88, 56, -104, 32, -112, 24, -120, 16, -120, 8, -120, 0)
+
 [node name="TiltingLight" parent="Lights" instance=ExtResource("3_mx8qg")]
 position = Vector2(217, -298)
 rotation = -0.305433
@@ -190,7 +200,7 @@ autoplay = "platform_move"
 [node name="DustSpawner" parent="." instance=ExtResource("6_mx8qg")]
 position = Vector2(72, -73)
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 z_index = -1
 offset_left = -3249.0
 offset_top = -2256.0
@@ -218,6 +228,8 @@ uv = PackedVector2Array(-376, -32, -376, 72, -80, 72, -80, -32)
 [editable path="Lights/FlickeringLight"]
 [editable path="Lights/FlickeringLight/Light"]
 [editable path="Lights/FlickeringLight/Light/LitArea"]
+[editable path="Lights/Light4"]
+[editable path="Lights/Light4/LitArea"]
 [editable path="Lights/TiltingLight"]
 [editable path="Lights/TiltingLight/LitArea"]
 [editable path="Platform Boxes/PlatformBox"]
