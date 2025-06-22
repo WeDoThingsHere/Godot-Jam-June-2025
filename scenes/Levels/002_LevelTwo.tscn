@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1s0qfsv5uwb7"]
+[gd_scene load_steps=15 format=3 uid="uid://b1s0qfsv5uwb7"]
 
 [ext_resource type="PackedScene" uid="uid://dunadgt76ux7n" path="res://scenes/Prefabs/EveryGameScene.tscn" id="1_jft5c"]
 [ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="2_yjwae"]
@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://nhxnwxvg7tii" path="res://scenes/Prefabs/Player.tscn" id="4_svtok"]
 [ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="5_1md53"]
 [ext_resource type="PackedScene" uid="uid://da0vb48bj51jb" path="res://scenes/Prefabs/Goal.tscn" id="6_pdqs3"]
+[ext_resource type="PackedScene" uid="uid://cq310hw2aa0yd" path="res://scenes/true_platform.tscn" id="7_w6yvq"]
 
-[sub_resource type="Animation" id="Animation_fsjfv"]
+[sub_resource type="Animation" id="Animation_4ntff"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -19,12 +20,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(97, -147)]
+"values": [Vector2(299, -114)]
 }
 
-[sub_resource type="Animation" id="Animation_6jvd8"]
-resource_name = "platform_move"
-length = 2.0
+[sub_resource type="Animation" id="Animation_w6yvq"]
+resource_name = "move"
+length = 7.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -33,101 +34,84 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
+"times": PackedFloat32Array(0, 3.5, 7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(97, -147), Vector2(288, -152), Vector2(97, -147)]
+"values": [Vector2(236, -114), Vector2(756, -114), Vector2(236, -114)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_urr3w"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iamex"]
 _data = {
-&"RESET": SubResource("Animation_fsjfv"),
-&"platform_move": SubResource("Animation_6jvd8")
+&"RESET": SubResource("Animation_4ntff"),
+&"move": SubResource("Animation_w6yvq")
 }
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_urr3w"]
 
 [sub_resource type="Gradient" id="Gradient_fsjfv"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_urr3w"]
 gradient = SubResource("Gradient_fsjfv")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w6yvq"]
+normal = Vector2(0.999884, -0.0152654)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4ntff"]
+
 [node name="Level Two" type="Node2D"]
 
 [node name="EveryGameScene" parent="." instance=ExtResource("1_jft5c")]
 
 [node name="Platforms" type="Node2D" parent="."]
-
-[node name="PlatformBox" parent="Platforms" instance=ExtResource("2_yjwae")]
-position = Vector2(108, 10)
-
-[node name="PlatformArea" parent="Platforms/PlatformBox" index="0"]
-position = Vector2(59, 57)
-
-[node name="Bounds" parent="Platforms/PlatformBox/PlatformArea" index="0"]
-polygon = PackedVector2Array(-168, -72, 240, -72, 240, 24, -168, 24)
-uv = PackedVector2Array(-168, -72, 240, -72, 240, 24, -168, 24)
+position = Vector2(-497, 161)
 
 [node name="PlatformBox3" parent="Platforms" instance=ExtResource("2_yjwae")]
-position = Vector2(400, -109)
+position = Vector2(299, -114)
 
 [node name="PlatformArea" parent="Platforms/PlatformBox3" index="0"]
 position = Vector2(59, 57)
 
 [node name="Bounds" parent="Platforms/PlatformBox3/PlatformArea" index="0"]
-polygon = PackedVector2Array(-200, -72, -64, -72, -64, -24, -200, -24)
+polygon = PackedVector2Array(-200, -72, 104, -72, 104, -24, -200, -24)
 uv = PackedVector2Array(-200, -72, -64, -72, -64, -24, -200, -24)
 
-[node name="PlatformBox2" parent="Platforms" instance=ExtResource("2_yjwae")]
-position = Vector2(97, -147)
-
-[node name="PlatformArea" parent="Platforms/PlatformBox2" index="0"]
-position = Vector2(59, 57)
-
-[node name="Bounds" parent="Platforms/PlatformBox2/PlatformArea" index="0"]
-polygon = PackedVector2Array(-136, -48, -8, -48, -8, -8, -136, -8)
-uv = PackedVector2Array(-136, -48, -8, -48, -32, -8, -136, -8)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/PlatformBox2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/PlatformBox3"]
 libraries = {
-&"": SubResource("AnimationLibrary_urr3w")
+&"": SubResource("AnimationLibrary_iamex")
 }
-autoplay = "platform_move"
+autoplay = "move"
 
 [node name="Lights" type="Node2D" parent="."]
 
 [node name="Light1" parent="Lights" instance=ExtResource("3_i42bq")]
-position = Vector2(136, -12)
+position = Vector2(-130, 77)
+scale = Vector2(1, 1)
 
 [node name="Polygon2D" parent="Lights/Light1/LitArea" index="1"]
 modulate = Color(1, 1, 1, 0.27451)
-polygon = PackedVector2Array(-140.033, -27.8162, -130.946, -50.5354, -120.79, -60.5775, -108.067, -69.6652, -88.0742, -79.6616, -64.446, -83.2967, -45.3619, -82.388, -18.0988, -75.1178, 2.80305, -61.4862, 13.7082, -48.7634, 22.2247, -32.3402, 28.0078, -10.8602, 29.0497, 5.62675, 25.3629, 23.9838, 19.2022, 39.0694, 4.73879, 57.8186, -13.0179, 74.594, -31.3319, 83.0555, -54.4642, 85.534, -77.5966, 81.4033, -98.112, 76.2463, -109.678, 68.8109, -123.723, 55.5924, -134.463, 38.2432, -139.42, 25.8509, -143.669, 13.0786, -143.669, -4.18807)
+polygon = PackedVector2Array(-105.423, -14.3194, -100.62, -25.0868, -93.9041, -32.5222, -87.3441, -37.9873, -76.0371, -43.6408, -62.674, -45.6967, -51.8809, -45.1828, -36.4621, -41.0711, -26.7038, -34.5325, -19.0554, -26.4592, -14.3814, -18.3859, -10.3863, -4.72982, -9.93137, 6.46523, -10.9821, 19.4311, -16.0076, 28.4331, -22.0838, 37.3137, -30.9644, 43.8573, -43.1168, 48.5313, -57.0287, 49.7864, -67.4217, 48.9987, -79.1068, 46.1943, -89.3896, 41.0529, -96.4006, 34.9767, -102.009, 27.9657, -105.643, 16.5231, -107.479, 8.8089, -107.479, -0.956357)
 uv = PackedVector2Array(-128, -16, -120, -40, -112, -48, -104, -48, -88, -56, -64, -72, -56, -72, -40, -64, -32, -64, -24, -56, -16, -48, -16, -40, 0, -8, 0, 16, -8, 24, -16, 40, -24, 56, -40, 56, -48, 56, -64, 56, -72, 56, -88, 56, -104, 32, -112, 24, -120, 16, -120, 8, -120, 0)
 
 [node name="Light2" parent="Lights" instance=ExtResource("3_i42bq")]
-position = Vector2(382, -21)
+position = Vector2(4, 18)
+rotation = -1.4748
+scale = Vector2(1, 1)
 
 [node name="Polygon2D" parent="Lights/Light2/LitArea" index="1"]
 modulate = Color(1, 1, 1, 0.27451)
-polygon = PackedVector2Array(-114.916, -18.5103, -108.707, -34.0333, -101.768, -40.8946, -93.0751, -47.1038, -79.4148, -53.9339, -63.2708, -56.4176, -50.2315, -55.7967, -31.6039, -50.8293, -17.3226, -41.5155, -9.87163, -32.8226, -4.05266, -21.6014, -0.101332, -6.92506, 0.610497, 4.33969, -1.90847, 16.8822, -6.11785, 27.1895, -16, 40, -28.1323, 51.4618, -40.6454, 57.2432, -56.4507, 58.9366, -72.256, 56.1143, -86.2732, 52.5908, -94.1758, 47.5105, -103.772, 38.4789, -111.11, 26.625, -114.497, 18.1579, -117.4, 9.43119, -117.4, -2.36632)
+polygon = PackedVector2Array(-108.428, -15.4992, -103.302, -26.9913, -96.1344, -34.927, -89.1329, -40.7599, -77.0649, -46.7938, -62.8026, -48.988, -51.2831, -48.4395, -34.8267, -44.0511, -24.4117, -37.0726, -16.2487, -28.456, -11.2601, -19.8394, -6.99609, -5.26427, -6.51059, 6.68415, -7.63207, 20.5225, -12.9957, 30.1304, -19.4808, 39.6086, -28.9591, 46.5926, -41.9293, 51.5812, -56.7774, 52.9207, -67.8698, 52.08, -80.3412, 49.0869, -90.2202, 43.7062, -98.7989, 37.1143, -104.785, 29.6315, -108.663, 17.4189, -110.623, 9.18554, -110.623, -1.23688)
 uv = PackedVector2Array(-128, -16, -120, -40, -112, -48, -104, -48, -88, -56, -64, -72, -56, -72, -40, -64, -32, -64, -24, -56, -16, -48, -16, -40, 0, -8, 0, 16, -8, 24, -16, 40, -24, 56, -40, 56, -48, 56, -64, 56, -72, 56, -88, 56, -104, 32, -112, 24, -120, 16, -120, 8, -120, 0)
 
 [node name="Light3" parent="Lights" instance=ExtResource("3_i42bq")]
-position = Vector2(39, -173)
+position = Vector2(149, 64)
+rotation = -2.94961
+scale = Vector2(1, 1)
 
 [node name="Polygon2D" parent="Lights/Light3/LitArea" index="1"]
 modulate = Color(1, 1, 1, 0.27451)
-polygon = PackedVector2Array(-112, -40, -112, 56, 0, 56, 0, -40)
-uv = PackedVector2Array(-112, -40, -112, 56, 0, 56, 0, -40)
+polygon = PackedVector2Array(-108.428, -15.4992, -103.302, -26.9913, -96.1344, -34.927, -89.1329, -40.7599, -77.0649, -46.7938, -62.8026, -48.988, -51.2831, -48.4395, -34.8267, -44.0511, -24.4117, -37.0726, -16.2487, -28.456, -11.2601, -19.8394, -6.99609, -5.26427, -6.51059, 6.68415, -7.63207, 20.5225, -12.9957, 30.1304, -19.4808, 39.6086, -28.9591, 46.5926, -41.9293, 51.5812, -56.7774, 52.9207, -67.8698, 52.08, -80.3412, 49.0869, -90.2202, 43.7062, -98.7989, 37.1143, -104.785, 29.6315, -108.663, 17.4189, -110.623, 9.18554, -110.623, -1.23688)
+uv = PackedVector2Array(-128, -16, -120, -40, -112, -48, -104, -48, -88, -56, -64, -72, -56, -72, -40, -64, -32, -64, -24, -56, -16, -48, -16, -40, 0, -8, 0, 16, -8, 24, -16, 40, -24, 56, -40, 56, -48, 56, -64, 56, -72, 56, -88, 56, -104, 32, -112, 24, -120, 16, -120, 8, -120, 0)
 
-[node name="Player" parent="." instance=ExtResource("4_svtok")]
-position = Vector2(71, -73)
-
-[node name="Killzone" parent="." instance=ExtResource("5_1md53")]
-position = Vector2(147, 88)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-shape = SubResource("WorldBoundaryShape2D_urr3w")
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("4_svtok")]
+position = Vector2(-507, 17)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 visible = false
@@ -136,15 +120,57 @@ scale = Vector2(4.60684, 2.5907)
 texture = SubResource("GradientTexture2D_urr3w")
 
 [node name="Goal" parent="." instance=ExtResource("6_pdqs3")]
-position = Vector2(379, -145)
+position = Vector2(454, 21)
 Level_To_Unlock = "Level_Three"
 
-[editable path="Platforms/PlatformBox"]
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="True Platforms" type="Node2D" parent="."]
+z_index = 1
+
+[node name="TruePlatform" parent="True Platforms" instance=ExtResource("7_w6yvq")]
+position = Vector2(-298, 112)
+
+[node name="bounds" parent="True Platforms/TruePlatform/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-104, 256, -104, -80, -344, -80, -344, 256)
+uv = PackedVector2Array(-95.9999, 248, -96, -40, -328, -40, -328, 256)
+
+[node name="TruePlatform2" parent="True Platforms" instance=ExtResource("7_w6yvq")]
+position = Vector2(710, 95)
+
+[node name="bounds" parent="True Platforms/TruePlatform2/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-288, -64, 0, -64, 0, 144, 0, 312, -208, 312, -288, 304)
+uv = PackedVector2Array(-264, -64, 0, -64, 0, 144, 0, 312, -208, 312, -272, 312)
+
+[node name="WorldBounds" type="Node2D" parent="."]
+
+[node name="RightBounds" type="StaticBody2D" parent="WorldBounds"]
+position = Vector2(-576, 0)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds/RightBounds"]
+shape = SubResource("WorldBoundaryShape2D_w6yvq")
+
+[node name="LeftBounds" type="StaticBody2D" parent="WorldBounds"]
+position = Vector2(577, 0)
+rotation = 3.14159
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds/LeftBounds"]
+shape = SubResource("WorldBoundaryShape2D_w6yvq")
+
+[node name="Killzone" parent="WorldBounds" instance=ExtResource("5_1md53")]
+position = Vector2(0, 323)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBounds/Killzone"]
+shape = SubResource("WorldBoundaryShape2D_4ntff")
+
 [editable path="Platforms/PlatformBox3"]
-[editable path="Platforms/PlatformBox2"]
 [editable path="Lights/Light1"]
 [editable path="Lights/Light1/LitArea"]
 [editable path="Lights/Light2"]
 [editable path="Lights/Light2/LitArea"]
 [editable path="Lights/Light3"]
 [editable path="Lights/Light3/LitArea"]
+[editable path="True Platforms/TruePlatform"]
+[editable path="True Platforms/TruePlatform2"]

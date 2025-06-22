@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 func update_global_polygon() -> PackedVector2Array:
 	var global_poly = collision_polygon.polygon
 	for n in collision_polygon.polygon.size():
-		global_poly[n] = (add_rotation(global_poly[n], global_rotation) + global_position) * global_scale
+		global_poly[n] = (add_rotation(global_poly[n], global_rotation) + global_position)
 	return global_poly
 
 func _on_area_entered(area: Area2D) -> void:
