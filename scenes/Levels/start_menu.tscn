@@ -1,21 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cp6apdwnnqdvi"]
+[gd_scene load_steps=7 format=3 uid="uid://cp6apdwnnqdvi"]
 
 [ext_resource type="Script" uid="uid://755bklg8k7wo" path="res://scripts/start_menu.gd" id="1_ouf4f"]
+[ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="2_6lfbd"]
 [ext_resource type="Script" uid="uid://boutl5a063ps7" path="res://LevelSelection.gd" id="2_thu50"]
+[ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="4_wlrfa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uojun"]
-bg_color = Color(0.866762, 0.566287, 0.6944, 0.584314)
+bg_color = Color(0.0705882, 0.0705882, 0.129412, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7x51"]
 bg_color = Color(0.523404, 0.599958, 0.763405, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h61rw"]
-bg_color = Color(0.483927, 0.674058, 0.829813, 1)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
@@ -30,6 +24,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ouf4f")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -65,8 +62,81 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_m7x51")
 text = "Play"
 
-[node name="HBOX Level Selection Container" type="HBoxContainer" parent="."]
+[node name="Platforms" type="Node2D" parent="."]
+position = Vector2(59, 89)
+
+[node name="Lvl1" type="Node2D" parent="Platforms"]
+
+[node name="Light" parent="Platforms/Lvl1" instance=ExtResource("4_wlrfa")]
+position = Vector2(420, 324)
+
+[node name="CreatedPlatforms" parent="Platforms/Lvl1/Light" index="0"]
+z_index = -1
+
+[node name="LitArea" parent="Platforms/Lvl1/Light" index="1"]
 visible = false
+
+[node name="Polygon2D" parent="Platforms/Lvl1/Light/LitArea" index="1"]
+visible = false
+polygon = PackedVector2Array(-136, -144, -136, -40, -40, -40, -40, -144)
+uv = PackedVector2Array(-128, -112, -128, -48, -80, -48, -80, -112)
+
+[node name="PlatformBox" parent="Platforms/Lvl1" instance=ExtResource("2_6lfbd")]
+position = Vector2(469, 256)
+
+[node name="Bounds" parent="Platforms/Lvl1/PlatformBox/PlatformArea" index="0"]
+polygon = PackedVector2Array(-176, -72, -176, 20, -93, 20, -93, -72)
+uv = PackedVector2Array(-176, -72, -176, -8, -104, -8, -104, -72)
+
+[node name="Lvl2" type="Node2D" parent="Platforms"]
+position = Vector2(183, 0)
+
+[node name="Light" parent="Platforms/Lvl2" instance=ExtResource("4_wlrfa")]
+position = Vector2(420, 324)
+
+[node name="CreatedPlatforms" parent="Platforms/Lvl2/Light" index="0"]
+z_index = -1
+
+[node name="LitArea" parent="Platforms/Lvl2/Light" index="1"]
+visible = false
+
+[node name="Polygon2D" parent="Platforms/Lvl2/Light/LitArea" index="1"]
+visible = false
+polygon = PackedVector2Array(-136, -144, -136, -40, -40, -40, -40, -144)
+uv = PackedVector2Array(-128, -112, -128, -48, -80, -48, -80, -112)
+
+[node name="PlatformBox" parent="Platforms/Lvl2" instance=ExtResource("2_6lfbd")]
+position = Vector2(469, 256)
+
+[node name="Bounds" parent="Platforms/Lvl2/PlatformBox/PlatformArea" index="0"]
+polygon = PackedVector2Array(-176, -72, -176, 20, -93, 20, -93, -72)
+uv = PackedVector2Array(-176, -72, -176, -8, -104, -8, -104, -72)
+
+[node name="Lvl3" type="Node2D" parent="Platforms"]
+position = Vector2(366, 0)
+
+[node name="Light" parent="Platforms/Lvl3" instance=ExtResource("4_wlrfa")]
+position = Vector2(420, 324)
+
+[node name="CreatedPlatforms" parent="Platforms/Lvl3/Light" index="0"]
+z_index = -1
+
+[node name="LitArea" parent="Platforms/Lvl3/Light" index="1"]
+visible = false
+
+[node name="Polygon2D" parent="Platforms/Lvl3/Light/LitArea" index="1"]
+visible = false
+polygon = PackedVector2Array(-136, -144, -136, -40, -40, -40, -40, -144)
+uv = PackedVector2Array(-128, -112, -128, -48, -80, -48, -80, -112)
+
+[node name="PlatformBox" parent="Platforms/Lvl3" instance=ExtResource("2_6lfbd")]
+position = Vector2(469, 256)
+
+[node name="Bounds" parent="Platforms/Lvl3/PlatformBox/PlatformArea" index="0"]
+polygon = PackedVector2Array(-176, -72, -176, 20, -93, 20, -93, -72)
+uv = PackedVector2Array(-176, -72, -176, -8, -104, -8, -104, -72)
+
+[node name="HBOX Level Selection Container" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -79,47 +149,38 @@ offset_right = 238.0
 offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 25
+theme_override_constants/separation = 100
 alignment = 1
 
 [node name="LevelOne" type="Button" parent="HBOX Level Selection Container"]
+z_index = 1
 layout_mode = 2
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_h61rw")
 text = "Level 
 1"
+flat = true
 script = ExtResource("2_thu50")
 
 [node name="LevelTwo" type="Button" parent="HBOX Level Selection Container"]
+z_index = 1
 layout_mode = 2
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_h61rw")
 text = "Level 
 2"
+flat = true
 script = ExtResource("2_thu50")
 LevelToLoad = "Level_Two"
 
 [node name="LevelThree" type="Button" parent="HBOX Level Selection Container"]
+z_index = 1
 layout_mode = 2
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
-theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_h61rw")
 text = "Level 
 3"
+flat = true
 script = ExtResource("2_thu50")
 LevelToLoad = "Level_Three"
 
@@ -127,3 +188,13 @@ LevelToLoad = "Level_Three"
 [connection signal="pressed" from="HBOX Level Selection Container/LevelOne" to="HBOX Level Selection Container/LevelOne" method="OnPress"]
 [connection signal="pressed" from="HBOX Level Selection Container/LevelTwo" to="HBOX Level Selection Container/LevelTwo" method="OnPress"]
 [connection signal="pressed" from="HBOX Level Selection Container/LevelThree" to="HBOX Level Selection Container/LevelThree" method="OnPress"]
+
+[editable path="Platforms/Lvl1/Light"]
+[editable path="Platforms/Lvl1/Light/LitArea"]
+[editable path="Platforms/Lvl1/PlatformBox"]
+[editable path="Platforms/Lvl2/Light"]
+[editable path="Platforms/Lvl2/Light/LitArea"]
+[editable path="Platforms/Lvl2/PlatformBox"]
+[editable path="Platforms/Lvl3/Light"]
+[editable path="Platforms/Lvl3/Light/LitArea"]
+[editable path="Platforms/Lvl3/PlatformBox"]
