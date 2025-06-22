@@ -16,7 +16,7 @@ SPEED = 270.0
 JUMP_VELOCITY = -600.0
 GRAV_MULT = 2.0
 SQUISH_TIME = 0.15
-SQUISH = 0.3
+SQUISH = 0.4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_p0vlq")

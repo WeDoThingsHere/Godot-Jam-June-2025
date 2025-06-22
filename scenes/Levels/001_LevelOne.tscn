@@ -161,9 +161,9 @@ shape = SubResource("WorldBoundaryShape2D_urr3w")
 [node name="Background" type="ColorRect" parent="."]
 z_index = -1
 offset_left = -3249.0
-offset_top = -2256.0
+offset_top = -2255.0
 offset_right = 3379.0
-offset_bottom = 1949.0
+offset_bottom = 1950.0
 color = Color(0.0705882, 0.0705882, 0.129412, 1)
 
 [editable path="Platforms/PlatformBox"]
