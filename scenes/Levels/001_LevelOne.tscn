@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://nhxnwxvg7tii" path="res://scenes/Prefabs/Player.tscn" id="4_o0sr6"]
 [ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="5_jynpa"]
 [ext_resource type="PackedScene" uid="uid://da0vb48bj51jb" path="res://scenes/Prefabs/Goal.tscn" id="6_7u874"]
-[ext_resource type="PackedScene" uid="uid://cq310hw2aa0yd" path="res://scenes/true_platform.tscn" id="7_hkq2j"]
+[ext_resource type="PackedScene" path="res://scenes/true_platform.tscn" id="7_hkq2j"]
 [ext_resource type="PackedScene" uid="uid://bhfabwws43023" path="res://scenes/dust_spawner.tscn" id="8_a2ux5"]
 
 [sub_resource type="Animation" id="Animation_y8fji"]
