@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://brik828nmalxf"]
+[gd_scene load_steps=15 format=3 uid="uid://brik828nmalxf"]
 
 [ext_resource type="PackedScene" uid="uid://nhxnwxvg7tii" path="res://scenes/Player.tscn" id="1_ty0f3"]
 [ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="2_ufmrn"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="4_y8fji"]
 [ext_resource type="PackedScene" uid="uid://d0p3djj4uybf5" path="res://scenes/flickering_light.tscn" id="5_y8fji"]
 [ext_resource type="PackedScene" uid="uid://bhfabwws43023" path="res://scenes/dust_spawner.tscn" id="6_mx8qg"]
+[ext_resource type="PackedScene" uid="uid://cq310hw2aa0yd" path="res://scenes/true_platform.tscn" id="6_y8fji"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_urr3w"]
 
@@ -91,7 +92,7 @@ z_index = 5
 position = Vector2(71, -73)
 
 [node name="Killzone" parent="." instance=ExtResource("2_ufmrn")]
-position = Vector2(145, 80)
+position = Vector2(140, 228)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(-72, 9)
@@ -104,7 +105,7 @@ z_index = 1
 position = Vector2(132, -74)
 
 [node name="Polygon2D" parent="Lights/Light1/LitArea" index="1"]
-modulate = Color(1, 1, 1, 0.27451)
+modulate = Color(1, 1, 1, 0.745098)
 polygon = PackedVector2Array(-140.033, -27.8162, -130.946, -50.5354, -120.79, -60.5775, -108.067, -69.6652, -88.0742, -79.6616, -64.446, -83.2967, -45.3619, -82.388, -18.0988, -75.1178, 2.80305, -61.4862, 13.7082, -48.7634, 22.2247, -32.3402, 28.0078, -10.8602, 29.0497, 5.62675, 25.3629, 23.9838, 19.2022, 39.0694, 4.73879, 57.8186, -13.0179, 74.594, -31.3319, 83.0555, -54.4642, 85.534, -77.5966, 81.4033, -98.112, 76.2463, -109.678, 68.8109, -123.723, 55.5924, -134.463, 38.2432, -139.42, 25.8509, -143.669, 13.0786, -143.669, -4.18807)
 uv = PackedVector2Array(-128, -16, -120, -40, -112, -48, -104, -48, -88, -56, -64, -72, -56, -72, -40, -64, -32, -64, -24, -56, -16, -48, -16, -40, 0, -8, 0, 16, -8, 24, -16, 40, -24, 56, -40, 56, -48, 56, -64, 56, -72, 56, -88, 56, -104, 32, -112, 24, -120, 16, -120, 8, -120, 0)
 
@@ -112,7 +113,7 @@ uv = PackedVector2Array(-128, -16, -120, -40, -112, -48, -104, -48, -88, -56, -6
 position = Vector2(371, -73)
 
 [node name="Polygon2D" parent="Lights/Light2/LitArea" index="1"]
-modulate = Color(1, 1, 1, 0.27451)
+modulate = Color(1, 1, 1, 0.745098)
 polygon = PackedVector2Array(-114.916, -18.5103, -108.707, -34.0333, -101.768, -40.8946, -93.0751, -47.1038, -79.4148, -53.9339, -63.2708, -56.4176, -50.2315, -55.7967, -31.6039, -50.8293, -17.3226, -41.5155, -9.87163, -32.8226, -4.05266, -21.6014, -0.101332, -6.92506, 0.610497, 4.33969, -1.90847, 16.8822, -6.11785, 27.1895, -16, 40, -28.1323, 51.4618, -40.6454, 57.2432, -56.4507, 58.9366, -72.256, 56.1143, -86.2732, 52.5908, -94.1758, 47.5105, -103.772, 38.4789, -111.11, 26.625, -114.497, 18.1579, -117.4, 9.43119, -117.4, -2.36632)
 uv = PackedVector2Array(-128, -16, -120, -40, -112, -48, -104, -48, -88, -56, -64, -72, -56, -72, -40, -64, -32, -64, -24, -56, -16, -48, -16, -40, 0, -8, 0, 16, -8, 24, -16, 40, -24, 56, -40, 56, -48, 56, -64, 56, -72, 56, -88, 56, -104, 32, -112, 24, -120, 16, -120, 8, -120, 0)
 
@@ -120,7 +121,7 @@ uv = PackedVector2Array(-128, -16, -120, -40, -112, -48, -104, -48, -88, -56, -6
 position = Vector2(39, -173)
 
 [node name="Polygon2D" parent="Lights/Light3/LitArea" index="1"]
-modulate = Color(1, 1, 1, 0.27451)
+modulate = Color(1, 1, 1, 0.745098)
 polygon = PackedVector2Array(-112, -40, -112, 56, 0, 56, 0, -40)
 uv = PackedVector2Array(-112, -40, -112, 56, 0, 56, 0, -40)
 
@@ -128,6 +129,7 @@ uv = PackedVector2Array(-112, -40, -112, 56, 0, 56, 0, -40)
 position = Vector2(-113, 28)
 
 [node name="Polygon2D" parent="Lights/FlickeringLight/Light/LitArea" index="1"]
+modulate = Color(1, 1, 1, 0.745098)
 polygon = PackedVector2Array(-104, 0, -96, -40, -16, -64, 64, -32, 88, 24, 64, 56, 32, 64, -96, 56, -104, 32)
 uv = PackedVector2Array(-104, 0, -96, -40, -16, -64, 64, -32, 88, 24, 64, 56, 32, 64, -96, 56, -104, 32)
 
@@ -136,6 +138,7 @@ position = Vector2(217, -298)
 rotation = -0.305433
 
 [node name="Polygon2D" parent="Lights/TiltingLight/LitArea" index="1"]
+modulate = Color(1, 1, 1, 0.745098)
 polygon = PackedVector2Array(-14.5551, -3.9146, 7.59131, -3.99697, 72.6787, 1698.34, -150.191, 1698.34)
 uv = PackedVector2Array(-12.2161, -3.31395, 7.59131, -3.99697, 72.6787, 1698.34, -150.191, 1698.34)
 
@@ -199,6 +202,13 @@ color = Color(0.0705882, 0.0705882, 0.129412, 1)
 position = Vector2(71, -73)
 scale = Vector2(2, 2)
 
+[node name="TruePlatform" parent="." instance=ExtResource("6_y8fji")]
+position = Vector2(304, 127)
+
+[node name="bounds" parent="TruePlatform/StaticBody2D" index="0"]
+polygon = PackedVector2Array(-376, -32, -376, 72, -80, 72, -80, -32)
+uv = PackedVector2Array(-376, -32, -376, 72, -80, 72, -80, -32)
+
 [editable path="Lights/Light1"]
 [editable path="Lights/Light1/LitArea"]
 [editable path="Lights/Light2"]
@@ -213,3 +223,4 @@ scale = Vector2(2, 2)
 [editable path="Platform Boxes/PlatformBox"]
 [editable path="Platform Boxes/PlatformBox3"]
 [editable path="Platform Boxes/PlatformBox2"]
+[editable path="TruePlatform"]
