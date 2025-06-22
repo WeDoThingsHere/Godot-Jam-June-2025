@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://cp6apdwnnqdvi"]
+[gd_scene load_steps=17 format=3 uid="uid://cp6apdwnnqdvi"]
 
 [ext_resource type="Script" uid="uid://755bklg8k7wo" path="res://scripts/start_menu.gd" id="1_ouf4f"]
 [ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="2_6lfbd"]
 [ext_resource type="Script" uid="uid://boutl5a063ps7" path="res://LevelSelection.gd" id="2_thu50"]
+[ext_resource type="FontFile" uid="uid://cy47fpiq1bxem" path="res://assets/Chunq.ttf" id="2_tmywb"]
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="4_wlrfa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uojun"]
@@ -27,7 +28,7 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0.075, 2.5, 3.45833, 4.91667, 6),
+"times": PackedFloat32Array(0, 2.5, 3.45833, 4.91667, 6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(387, 207), Vector2(431.795, 145.125), Vector2(311.605, 190.19), Vector2(413.26, 235.19), Vector2(387, 207)]
@@ -42,10 +43,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": []
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3vial"]
@@ -65,7 +66,7 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4.5, 6.46667),
+"times": PackedFloat32Array(0, 2, 4.5, 6.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(330, 173), Vector2(297.02, 217.08), Vector2(380.12, 185.485), Vector2(330, 173)]
@@ -163,6 +164,7 @@ offset_top = -362.0
 offset_right = 92.5
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 60
 alignment = 1
 
 [node name="Play Button" type="Button" parent="V Container"]
@@ -172,9 +174,22 @@ theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_tmywb")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_m7x51")
 text = "Play"
+
+[node name="Quit Button" type="Button" parent="V Container"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_tmywb")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_m7x51")
+text = "Quit"
 
 [node name="Platforms" type="Node2D" parent="."]
 visible = false
@@ -183,7 +198,6 @@ position = Vector2(59, 89)
 [node name="Lvl1" type="Node2D" parent="Platforms"]
 
 [node name="Light1" parent="Platforms/Lvl1" instance=ExtResource("4_wlrfa")]
-position = Vector2(387, 207)
 rotation = -0.23911
 
 [node name="Polygon2D" parent="Platforms/Lvl1/Light1/LitArea" index="1"]
@@ -304,7 +318,28 @@ flat = true
 script = ExtResource("2_thu50")
 LevelToLoad = "Level_Three"
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = 80.0
+offset_right = 36.0
+offset_bottom = 103.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_tmywb")
+theme_override_font_sizes/font_size = 120
+text = "Light Box"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="V Container/Play Button" to="." method="PlayButton"]
+[connection signal="pressed" from="V Container/Quit Button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="HBOX Level Selection Container/LevelOne" to="HBOX Level Selection Container/LevelOne" method="OnPress"]
 [connection signal="pressed" from="HBOX Level Selection Container/LevelTwo" to="HBOX Level Selection Container/LevelTwo" method="OnPress"]
 [connection signal="pressed" from="HBOX Level Selection Container/LevelThree" to="HBOX Level Selection Container/LevelThree" method="OnPress"]

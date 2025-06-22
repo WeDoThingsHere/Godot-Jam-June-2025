@@ -51,3 +51,7 @@ func setvisibility() -> void:
 func PlayButton() -> void:
 	setvisibility()
 	
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit() # Replace with function body.
