@@ -9,6 +9,21 @@
 [ext_resource type="PackedScene" uid="uid://bhfabwws43023" path="res://scenes/dust_spawner.tscn" id="6_tb5yy"]
 [ext_resource type="PackedScene" path="res://scenes/true_platform.tscn" id="7_jglaw"]
 
+[sub_resource type="Animation" id="Animation_jglaw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_tb5yy"]
 resource_name = "elevator"
 length = 10.0
@@ -26,7 +41,13 @@ tracks/0/keys = {
 "values": [Vector2(0, -600), Vector2(0, -900)]
 }
 
-[sub_resource type="Animation" id="Animation_jglaw"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_53cjc"]
+_data = {
+&"RESET": SubResource("Animation_jglaw"),
+&"elevator": SubResource("Animation_tb5yy")
+}
+
+[sub_resource type="Animation" id="Animation_o4dxq"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -38,13 +59,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_53cjc"]
-_data = {
-&"RESET": SubResource("Animation_jglaw"),
-&"elevator": SubResource("Animation_tb5yy")
+"values": [Vector2(0, -989.715)]
 }
 
 [sub_resource type="Animation" id="Animation_jybrk"]
@@ -62,21 +77,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(188, -989.715), Vector2(188, -689.715)]
-}
-
-[sub_resource type="Animation" id="Animation_o4dxq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -989.715)]
 }
 
 [sub_resource type="Animation" id="Animation_sd7vf"]
@@ -336,7 +336,7 @@ texture = SubResource("GradientTexture2D_urr3w")
 
 [node name="Goal" parent="." instance=ExtResource("6_1dhsq")]
 position = Vector2(477, -189)
-Level_To_Unlock = "Level_Two"
+Level_To_Unlock = "Level_Four"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

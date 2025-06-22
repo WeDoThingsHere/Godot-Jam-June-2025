@@ -10,11 +10,13 @@ func _ready() -> void:
 
 
 func _on_quit_pressed() -> void:
+	AudioPlayer.play_UI()
 	get_tree().quit()
 	pass # Replace with function body.
 
 
 func _on_start_menu_pressed() -> void:
+	AudioPlayer.play_UI()
 	Engine.time_scale = 1.0
 	get_tree().change_scene_to_packed(startMenuScene)
 	pass # Replace with function body.

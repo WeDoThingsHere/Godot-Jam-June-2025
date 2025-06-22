@@ -1,8 +1,8 @@
 [gd_scene load_steps=17 format=3 uid="uid://cp6apdwnnqdvi"]
 
-[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_ouf4f"]
+[ext_resource type="Script" uid="uid://755bklg8k7wo" path="res://scripts/start_menu.gd" id="1_ouf4f"]
 [ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="2_6lfbd"]
-[ext_resource type="Script" path="res://LevelSelection.gd" id="2_thu50"]
+[ext_resource type="Script" uid="uid://boutl5a063ps7" path="res://LevelSelection.gd" id="2_thu50"]
 [ext_resource type="FontFile" uid="uid://cy47fpiq1bxem" path="res://assets/Chunq.ttf" id="2_tmywb"]
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="4_wlrfa"]
 
@@ -196,6 +196,7 @@ visible = false
 position = Vector2(59, 89)
 
 [node name="Lvl1" type="Node2D" parent="Platforms"]
+position = Vector2(-182, -14)
 
 [node name="Light1" parent="Platforms/Lvl1" instance=ExtResource("4_wlrfa")]
 rotation = -0.23911
@@ -219,7 +220,8 @@ polygon = PackedVector2Array(-176, -72, -176, 20, -93, 20, -93, -72)
 uv = PackedVector2Array(-176, -72, -176, -8, -104, -8, -104, -72)
 
 [node name="Lvl2" type="Node2D" parent="Platforms"]
-position = Vector2(183, 0)
+visible = false
+position = Vector2(1, -14)
 
 [node name="PlatformBox" parent="Platforms/Lvl2" instance=ExtResource("2_6lfbd")]
 position = Vector2(469, 256)
@@ -245,7 +247,8 @@ libraries = {
 autoplay = "new_animation"
 
 [node name="Lvl3" type="Node2D" parent="Platforms"]
-position = Vector2(366, 0)
+visible = false
+position = Vector2(184, -14)
 
 [node name="PlatformBox" parent="Platforms/Lvl3" instance=ExtResource("2_6lfbd")]
 position = Vector2(469, 256)
@@ -269,6 +272,58 @@ libraries = {
 }
 autoplay = "new_animation"
 
+[node name="Lvl4" type="Node2D" parent="Platforms"]
+visible = false
+position = Vector2(366, -14)
+
+[node name="Light1" parent="Platforms/Lvl4" instance=ExtResource("4_wlrfa")]
+rotation = -0.23911
+
+[node name="Polygon2D" parent="Platforms/Lvl4/Light1/LitArea" index="1"]
+modulate = Color(1, 1, 1, 0.27451)
+polygon = PackedVector2Array(-140.033, -27.8162, -131.542, -49.5224, -120.79, -60.5775, -108.067, -69.6652, -88.0742, -79.6616, -64.446, -83.2967, -45.3619, -82.388, -18.0988, -75.1178, 2.80305, -61.4862, 13.7082, -48.7634, 22.2247, -32.3402, 28.0078, -10.8602, 28.8121, 8.93458, 27.1593, 29.5957, 18.0684, 47.7776, 7.32456, 63.48, -8.37792, 75.0503, -29.8655, 83.3148, -54.4642, 85.534, -72.8408, 84.1412, -93.502, 79.1825, -111.684, 70.0916, -124.08, 59.3478, -133.998, 46.9511, -140.423, 26.7186, -143.669, 13.0786, -143.669, -4.18807)
+uv = PackedVector2Array(-128, -16, -120, -40, -112, -48, -104, -48, -88, -56, -64, -72, -56, -72, -40, -64, -32, -64, -24, -56, -16, -48, -16, -40, 0, -8, 0, 16, -8, 24, -16, 40, -24, 56, -40, 56, -48, 56, -64, 56, -72, 56, -88, 56, -104, 32, -112, 24, -120, 16, -120, 8, -120, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Lvl4/Light1"]
+libraries = {
+&"": SubResource("AnimationLibrary_3vial")
+}
+autoplay = "movingduh"
+
+[node name="PlatformBox" parent="Platforms/Lvl4" instance=ExtResource("2_6lfbd")]
+position = Vector2(469, 256)
+
+[node name="Bounds" parent="Platforms/Lvl4/PlatformBox/PlatformArea" index="0"]
+polygon = PackedVector2Array(-176, -72, -176, 20, -93, 20, -93, -72)
+uv = PackedVector2Array(-176, -72, -176, -8, -104, -8, -104, -72)
+
+[node name="Lvl5" type="Node2D" parent="Platforms"]
+visible = false
+position = Vector2(550, -14)
+
+[node name="PlatformBox" parent="Platforms/Lvl5" instance=ExtResource("2_6lfbd")]
+position = Vector2(469, 256)
+
+[node name="Bounds" parent="Platforms/Lvl5/PlatformBox/PlatformArea" index="0"]
+polygon = PackedVector2Array(-176, -72, -176, 20, -93, 20, -93, -72)
+uv = PackedVector2Array(-176, -72, -176, -8, -104, -8, -104, -72)
+
+[node name="Light1" parent="Platforms/Lvl5" instance=ExtResource("4_wlrfa")]
+visible = false
+position = Vector2(330, 173)
+rotation = -1.58999
+
+[node name="Polygon2D" parent="Platforms/Lvl5/Light1/LitArea" index="1"]
+modulate = Color(1, 1, 1, 0.27451)
+polygon = PackedVector2Array(-140.033, -27.8162, -131.542, -49.5224, -120.79, -60.5775, -108.067, -69.6652, -88.0742, -79.6616, -64.446, -83.2967, -45.3619, -82.388, -18.0988, -75.1178, 2.80305, -61.4862, 13.7082, -48.7634, 22.2247, -32.3402, 28.0078, -10.8602, 28.8121, 8.93458, 27.1593, 29.5957, 18.0684, 47.7776, 7.32456, 63.48, -8.37792, 75.0503, -29.8655, 83.3148, -54.4642, 85.534, -72.8408, 84.1412, -93.502, 79.1825, -111.684, 70.0916, -124.08, 59.3478, -133.998, 46.9511, -140.423, 26.7186, -143.669, 13.0786, -143.669, -4.18807)
+uv = PackedVector2Array(-128, -16, -120, -40, -112, -48, -104, -48, -88, -56, -64, -72, -56, -72, -40, -64, -32, -64, -24, -56, -16, -48, -16, -40, 0, -8, 0, 16, -8, 24, -16, 40, -24, 56, -40, 56, -48, 56, -64, 56, -72, 56, -88, 56, -104, 32, -112, 24, -120, 16, -120, 8, -120, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Lvl5/Light1"]
+libraries = {
+&"": SubResource("AnimationLibrary_5e4i3")
+}
+autoplay = "new_animation"
+
 [node name="HBOX Level Selection Container" type="HBoxContainer" parent="."]
 visible = false
 layout_mode = 1
@@ -277,10 +332,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -237.0
-offset_top = -38.0
-offset_right = 238.0
-offset_bottom = 27.0
+offset_left = -407.0
+offset_top = -69.0
+offset_right = 408.0
+offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 100
@@ -318,6 +373,28 @@ flat = true
 script = ExtResource("2_thu50")
 LevelToLoad = "Level_Three"
 
+[node name="LevelFour" type="Button" parent="HBOX Level Selection Container"]
+z_index = 5
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+text = "Level 
+4"
+flat = true
+script = ExtResource("2_thu50")
+LevelToLoad = "Level_Four"
+
+[node name="LevelFive" type="Button" parent="HBOX Level Selection Container"]
+z_index = 5
+layout_mode = 2
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+text = "Level 
+5"
+flat = true
+script = ExtResource("2_thu50")
+LevelToLoad = "Level_Five"
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -343,6 +420,8 @@ vertical_alignment = 1
 [connection signal="pressed" from="HBOX Level Selection Container/LevelOne" to="HBOX Level Selection Container/LevelOne" method="OnPress"]
 [connection signal="pressed" from="HBOX Level Selection Container/LevelTwo" to="HBOX Level Selection Container/LevelTwo" method="OnPress"]
 [connection signal="pressed" from="HBOX Level Selection Container/LevelThree" to="HBOX Level Selection Container/LevelThree" method="OnPress"]
+[connection signal="pressed" from="HBOX Level Selection Container/LevelFour" to="HBOX Level Selection Container/LevelFour" method="OnPress"]
+[connection signal="pressed" from="HBOX Level Selection Container/LevelFive" to="HBOX Level Selection Container/LevelFive" method="OnPress"]
 
 [editable path="Platforms/Lvl1/Light1"]
 [editable path="Platforms/Lvl1/Light1/LitArea"]
@@ -353,3 +432,9 @@ vertical_alignment = 1
 [editable path="Platforms/Lvl3/PlatformBox"]
 [editable path="Platforms/Lvl3/Light1"]
 [editable path="Platforms/Lvl3/Light1/LitArea"]
+[editable path="Platforms/Lvl4/Light1"]
+[editable path="Platforms/Lvl4/Light1/LitArea"]
+[editable path="Platforms/Lvl4/PlatformBox"]
+[editable path="Platforms/Lvl5/PlatformBox"]
+[editable path="Platforms/Lvl5/Light1"]
+[editable path="Platforms/Lvl5/Light1/LitArea"]

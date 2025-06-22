@@ -4,11 +4,15 @@ var loadedLevel = {
 	"Level_One": preload("res://scenes/Levels/001_LevelOne.tscn"),
 	"Level_Two": preload("res://scenes/Levels/002_LevelTwo.tscn"),
 	"Level_Three": preload("res://scenes/Levels/003_LevelThree.tscn"),
+	"Level_Four": preload("res://scenes/Levels/004_LevelFour.tscn"),
+	"Level_Five": preload("res://scenes/Levels/005_LevelFive.tscn")
 }
 var completation = {
 	"Level_One": true,
 	"Level_Two": false,
 	"Level_Three": false,
+	"Level_Four": false,
+	"Level_Five": false,
 }
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

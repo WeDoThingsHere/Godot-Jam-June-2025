@@ -14,6 +14,8 @@ var LevelToLoad: String = "LevelOne"
 @onready var platforms = $Platforms
 @onready var Light2 = $Platforms/Lvl2/Light1
 @onready var Light3 = $Platforms/Lvl3/Light1
+@onready var Light4 = $Platforms/Lvl4/Light1
+@onready var Light5 = $Platforms/Lvl5/Light1
 ##Lights to set visible/invisible
 
 func showLevels() -> void:
@@ -39,6 +41,8 @@ func setvisibility() -> void:
 		platforms.visible = false
 		Light2.visible = false
 		Light3.visible = false
+		Light4.visible = false
+		Light5.visible = false
 	else:
 		LevelButtons.visible = true
 		platforms.visible = true
@@ -46,9 +50,14 @@ func setvisibility() -> void:
 			Light2.visible = true
 			if(SceneManager.checkForCompletion("Level_Three")):
 				Light3.visible = true
+				if(SceneManager.checkForCompletion("Level_Four")):
+					Light4.visible = true
+					if(SceneManager.checkForCompletion("Level_Five")):
+						Light5.visible = true
 
 
 func PlayButton() -> void:
+	AudioPlayer.play_UI()
 	setvisibility()
 	
 

@@ -1,13 +1,28 @@
-[gd_scene load_steps=20 format=3 uid="uid://dvhpbjmgumk6k"]
+[gd_scene load_steps=20 format=3 uid="uid://bisaox5r7e02y"]
 
 [ext_resource type="PackedScene" uid="uid://dunadgt76ux7n" path="res://scenes/Prefabs/EveryGameScene.tscn" id="1_hjd51"]
 [ext_resource type="PackedScene" uid="uid://xalf27q53dx2" path="res://scenes/platform_box.tscn" id="2_qwptg"]
 [ext_resource type="PackedScene" uid="uid://cf358hob3lvvq" path="res://scenes/light.tscn" id="3_vxj43"]
 [ext_resource type="PackedScene" uid="uid://da0vb48bj51jb" path="res://scenes/Prefabs/Goal.tscn" id="4_dc6it"]
 [ext_resource type="PackedScene" uid="uid://bhfabwws43023" path="res://scenes/dust_spawner.tscn" id="5_i6mds"]
-[ext_resource type="PackedScene" uid="uid://cq310hw2aa0yd" path="res://scenes/true_platform.tscn" id="6_fe2my"]
+[ext_resource type="PackedScene" path="res://scenes/true_platform.tscn" id="6_fe2my"]
 [ext_resource type="PackedScene" uid="uid://bytetusxvp5dp" path="res://scenes/killzone.tscn" id="7_f1y6j"]
 [ext_resource type="PackedScene" uid="uid://cn6mjaf1avpfd" path="res://scenes/Player.tscn" id="8_7ntk6"]
+
+[sub_resource type="Animation" id="Animation_qwptg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(426, -96)]
+}
 
 [sub_resource type="Animation" id="Animation_hjd51"]
 resource_name = "move"
@@ -24,21 +39,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(383, -96), Vector2(627.055, -96), Vector2(383, -96)]
-}
-
-[sub_resource type="Animation" id="Animation_qwptg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(426, -96)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vxj43"]
@@ -84,6 +84,21 @@ _data = {
 &"swing": SubResource("Animation_hkq2j")
 }
 
+[sub_resource type="Animation" id="Animation_2ks6o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9, 11)]
+}
+
 [sub_resource type="Animation" id="Animation_7j7xi"]
 resource_name = "move"
 length = 8.0
@@ -99,21 +114,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(9, 11), Vector2(20, 13), Vector2(11, 10), Vector2(20, 11), Vector2(9, 11)]
-}
-
-[sub_resource type="Animation" id="Animation_2ks6o"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(9, 11)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tdl83"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://crc7l4eyeliex"]
+
+[ext_resource type="Script" uid="uid://dwgdln3r53374" path="res://AudioPlayer.gd" id="1_hs2ye"]
+[ext_resource type="AudioStream" uid="uid://cxxbgou4t52hu" path="res://assets/LDMainThemeLoop.mp3" id="2_nn5wq"]
+[ext_resource type="AudioStream" uid="uid://uamy6o656kuj" path="res://assets/PlayerDeath.wav" id="3_ndch2"]
+[ext_resource type="AudioStream" uid="uid://bvfcsifra33ja" path="res://assets/UI_GenericSound.wav" id="4_1xcxp"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_hs2ye")
+
+[node name="Music Player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_nn5wq")
+volume_db = -4.439
+parameters/looping = true
+
+[node name="Death Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ndch2")
+
+[node name="UI Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1xcxp")
